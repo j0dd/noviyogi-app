@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1A2229">
+<title>Noviyogi</title>
+<meta name="ext-resource-dependency" content="screenshots/page-01.jpg" data-resource-id="photo01" />
+<meta name="ext-resource-dependency" content="screenshots/page-02.jpg" data-resource-id="photo02" />
+<meta name="ext-resource-dependency" content="screenshots/page-04.jpg" data-resource-id="photo04" />
+<meta name="ext-resource-dependency" content="screenshots/page-05.jpg" data-resource-id="photo05" />
+<meta name="ext-resource-dependency" content="screenshots/page-06.jpg" data-resource-id="photo06" />
+<meta name="ext-resource-dependency" content="screenshots/page-07.jpg" data-resource-id="photo07" />
+<meta name="ext-resource-dependency" content="screenshots/page-10.jpg" data-resource-id="photo10" />
+<meta name="ext-resource-dependency" content="screenshots/page-08.jpg" data-resource-id="photo08" />
+<meta name="ext-resource-dependency" content="screenshots/page-12.jpg" data-resource-id="photo12" />
+<meta name="ext-resource-dependency" content="screenshots/page-13.jpg" data-resource-id="photo13" />
+<meta name="ext-resource-dependency" content="screenshots/page-17.jpg" data-resource-id="photo17" />
+<meta name="ext-resource-dependency" content="screenshots/page-14.jpg" data-resource-id="photo14" />
+<meta name="ext-resource-dependency" content="screenshots/page-18.jpg" data-resource-id="photo18" />
+<meta name="ext-resource-dependency" content="screenshots/page-21.jpg" data-resource-id="photo21" />
+<meta name="ext-resource-dependency" content="screenshots/page-22.jpg" data-resource-id="photo22" />
+<meta name="ext-resource-dependency" content="screenshots/page-25.jpg" data-resource-id="photo25" />
+<meta name="ext-resource-dependency" content="screenshots/page-26.jpg" data-resource-id="photo26" />
+<meta name="ext-resource-dependency" content="screenshots/page-24.jpg" data-resource-id="photo24" />
+<meta name="ext-resource-dependency" content="screenshots/page-29.jpg" data-resource-id="photo29" />
+<meta name="ext-resource-dependency" content="screenshots/page-35.jpg" data-resource-id="photo35" />
+<meta name="ext-resource-dependency" content="screenshots/page-36.jpg" data-resource-id="photo36" />
+<meta name="ext-resource-dependency" content="screenshots/page-37.jpg" data-resource-id="photo37" />
+
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#1A2229"/><text x="50" y="58" font-size="40" text-anchor="middle" fill="#3E7CA6">🧘</text></svg></template>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @keyframes loadingBarFill { from { width: 0%; } to { width: 100%; } }
+    @keyframes elephantWalk { from { left: 0%; transform: translateX(0); } to { left: 100%; transform: translateX(-100%); } }
+    @keyframes elephantBob { 0%,100% { transform: translateY(0) rotate(0deg); } 25% { transform: translateY(-2px) rotate(-1.5deg); } 50% { transform: translateY(0) rotate(0deg); } 75% { transform: translateY(-2px) rotate(1.5deg); } }
+    @keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.035); } }
+    @keyframes breathTextColor { 0%,100% { color: #fff; } 50% { color: #B7C4CA; } }
+    @keyframes fadeInIntro { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInHamsa { from { opacity: 0; transform: translateY(8px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes handSwell { 0%,100% { transform: scale(1); } 50% { transform: scale(1.14); } }
+    @keyframes mantraFade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes photoSnapIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+    html, body { margin: 0; height: 100%; background: oklch(0.16 0.012 240); overscroll-behavior: none; }
+    @media (max-width: 480px) {
+      .noviyogi-shell { padding: 0 !important; }
+      .noviyogi-frame { width: 100vw !important; height: 100dvh !important; border-radius: 0 !important; box-shadow: none !important; }
+    }
+  </style>
+</helmet>
+<div class="noviyogi-shell" style="min-height:100dvh;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:oklch(0.16 0.012 240);font-family:'Manrope',-apple-system,sans-serif">
+  <div class="noviyogi-frame" style="width:390px;height:844px;background:oklch(0.2 0.012 240);border-radius:36px;box-shadow:0 30px 60px -20px rgba(0,0,0,0.55);overflow:hidden;position:relative;display:flex;flex-direction:column;position:relative">
+    <audio ref="{{audioRef}}" src="chime.wav" preload="auto"></audio>
+    <audio ref="{{meditationAudioRef}}" preload="auto"></audio>
+
+    <sc-if value="{{isIntro}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#000;position:relative;padding:40px 24px">
+        <div style="animation:fadeInIntro 1.4s ease both;font-size:34px;letter-spacing:0.14em;text-transform:lowercase;color:#fff;font-weight:600">noviyogi</div>
+        <div style="animation:fadeInIntro 1.2s ease both;animation-delay:1.4s;font-size:14px;color:#9a9a9a;text-align:center;margin-top:14px;max-width:280px;line-height:1.5">the stretching app for 49 year old boomers from Eau Claire, Florida and beyond</div>
+        <div onClick="{{proceedFromIntro}}" style="animation:fadeInHamsa 1s ease both, handSwell 4.5s ease-in-out 4s infinite;position:absolute;bottom:48px;cursor:pointer;width:72px;height:72px;display:flex;align-items:center;justify-content:center">
+          <img src="hamsa-hand.png" alt="Hand of Fatima" style="width: 108px; height: 97px; object-fit: contain">
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isLoading}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#000;padding:40px 24px 32px;gap:16px;position:relative">
+        <div style="animation:mantraFade 1.2s ease both;font-size:24px;color:#fff;text-align:center;line-height:1.6">लोकाः समस्ताः सुखिनो भवन्तु</div><div style="animation: mantraFade 1.2s ease both; animation-delay: 0.5s; font-family:'Dancing Script',cursive;font-weight:400;font-size: 26px; color: #F0F163; text-align: center; line-height: 1.4; max-width: 280px">may all beings everywhere be happy and free</div>
+        <div style="position:absolute;bottom:40px;left:24px;right:24px;display:flex;flex-direction:column;gap:8px;align-items:center">
+          <div style="font-size:12px;letter-spacing:0.08em;color:#8FA0A8;text-transform:lowercase">{{loadingPhrase}}</div>
+          <div style="width:100%;position:relative;margin-top:22px">
+            <div style="width:100%;height:4px;background:#232E35;border-radius:2px;overflow:hidden">
+              <div style="height:100%;background:#F0F163;border-radius:2px;animation:loadingBarFill 5s linear forwards"></div>
+            </div>
+            <div style="position:absolute;bottom:2px;width:34px;animation:elephantWalk 5s linear forwards">
+              <img src="assets/elephant-only.png" alt="walking elephant" style="width:100%;height:auto;display:block;animation:elephantBob 0.42s ease-in-out infinite;transform-origin:bottom center" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isHome}}" hint-placeholder-val="{{true}}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:calc(32px + env(safe-area-inset-top)) 24px 24px;overflow:auto;background:oklch(0.19 0.008 240)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="font-size:11px;letter-spacing:0.14em;color:{{accent}};font-weight:700">noviyogi</div>
+            <div style="font-size:19px;font-weight:600;color:{{ink}};letter-spacing:-0.01em">{{greetingLabel}}</div>
+          </div>
+          <div onClick="{{goProfile}}" style="width:30px;height:30px;border-radius:15px;background:{{cardBg}};border:1px solid {{dividerColor}};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:{{ink}};cursor:pointer;flex-shrink:0">T</div>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:20px">
+          <div style="flex:1;background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}}">
+            <div style="font-size:20px;font-weight:700;color:{{accent}}">{{homeStreak}}</div>
+            <div style="font-size:11px;color:{{muted}}">day streak</div>
+          </div>
+          <div style="flex:1;background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}}">
+            <div style="font-size:20px;font-weight:700;color:{{accent}}">{{homeWeekMinutes}}</div>
+            <div style="font-size:11px;color:{{muted}}">min this week</div>
+          </div>
+        </div>
+        <div style="font-size:13px;color:{{muted}};line-height:1.5;font-style:italic">“{{homeAffirmation}}”</div>
+        <div style="font-size:11px;color:{{muted}};opacity:0.7;margin-top:2px">— {{homeAffirmationBy}}</div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+          <svg width="150" height="114" viewBox="0 0 540 412">
+            <defs>
+              <mask id="elephantMask" maskUnits="userSpaceOnUse" x="0" y="0" width="540" height="412">
+                <image href="assets/elephant-yellow.png" x="0" y="0" width="540" height="412"></image>
+              </mask>
+              <linearGradient id="elephantGrayGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#4a5560"></stop>
+                <stop offset="1" stop-color="#6b7680"></stop>
+              </linearGradient>
+              <linearGradient id="elephantColorGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f2665f"></stop>
+                <stop offset="0.4" stop-color="#f7b84f"></stop>
+                <stop offset="0.7" stop-color="#5fcf9f"></stop>
+                <stop offset="1" stop-color="#4f9bf0"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="540" height="412" fill="url(#elephantGrayGrad)" mask="url(#elephantMask)" opacity="0.4"></rect>
+            <rect x="0" y="0" width="{{elephantFillWidth}}" height="412" fill="url(#elephantColorGrad)" mask="url(#elephantMask)"></rect>
+          </svg>
+          <div style="font-size:12px;color:{{muted}}">{{weekProgressLabel}}</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
+          <div onClick="{{goMeditateDuration}}" style="cursor:pointer;background:{{cardBg}};border-radius:12px;padding:15px;border:1px solid {{dividerColor}};display:flex;align-items:center;justify-content:center;gap:10px">
+            <span style="font-size:16px">🧘</span>
+            <span style="font-size:14px;font-weight:600;color:{{ink}}">Meditate</span>
+          </div>
+          <div onClick="{{goStretchChoose}}" style="cursor:pointer;background:{{cardBg}};border-radius:12px;padding:15px;border:1px solid {{dividerColor}};display:flex;align-items:center;justify-content:center;gap:10px">
+            <span style="font-size:16px">🤸</span>
+            <span style="font-size:14px;font-weight:600;color:{{ink}}">Stretch</span>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isMeditateDuration}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top)) 24px 24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+          <div onClick="{{goHome}}" style="width:28px;height:28px;border-radius:10px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{muted}};font-size:13px">←</div>
+          <div style="font-size:15px;font-weight:600;color:{{ink}}">🧘 Meditate</div>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:20px">
+          <div onClick="{{goMeditateList5}}" style="flex:1;cursor:pointer;background:{{cardBg}};border-radius:10px;padding:12px;border:1px solid {{dividerColor}};text-align:center;box-shadow:0 1px 0 rgba(255,255,255,0.03) inset" style-hover="border-color:{{accent}}" style-active="transform:scale(0.98)">
+            <div style="font-size:14px;font-weight:600;color:{{ink}}">5 min</div>
+            <div style="font-size:11px;color:{{muted}};margin-top:2px">{{count5Label}}</div>
+          </div>
+          <div onClick="{{goMeditateList10}}" style="flex:1;cursor:pointer;background:{{cardBg}};border-radius:10px;padding:12px;border:1px solid {{dividerColor}};text-align:center;box-shadow:0 1px 0 rgba(255,255,255,0.03) inset" style-hover="border-color:{{accent}}" style-active="transform:scale(0.98)">
+            <div style="font-size:14px;font-weight:600;color:{{ink}}">10 min</div>
+            <div style="font-size:11px;color:{{muted}};margin-top:2px">{{count10Label}}</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:{{cardBg}};border-radius:12px;padding:12px 14px;border:1px solid {{dividerColor}}">
+          <div style="font-size:13px;color:{{ink}};font-weight:600">Transition Tone</div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div onClick="{{previewTone}}" style="width:22px;height:22px;border-radius:11px;background:{{dividerColor}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{ink}};font-size:8px">{{toneIcon}}</div>
+            <div onClick="{{toggleMusic}}" style="width:36px;height:20px;border-radius:10px;background:{{musicTrackBg}};position:relative;cursor:pointer;transition:background .2s">
+              <div style="width:16px;height:16px;border-radius:8px;background:#fff;position:absolute;top:2px;left:{{musicKnobLeft}};transition:left .2s"></div>
+            </div>
+          </div>
+        </div>
+        <div style="flex:1"></div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isStretchChoose}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top)) 24px 24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+          <div onClick="{{goHome}}" style="width:28px;height:28px;border-radius:10px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{muted}};font-size:13px">←</div>
+          <div style="font-size:15px;font-weight:600;color:{{ink}}">🤸 Stretch</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:{{cardBg}};border-radius:20px;padding:6px;margin-bottom:14px;border:1px solid {{dividerColor}}">
+          <div onClick="{{setAutoMode}}" style="flex:1;text-align:center;padding:8px 0;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;background:{{autoBg}};transition:background .2s;animation:breathe 4s ease-in-out infinite"><span style="animation:breathTextColor 4s ease-in-out infinite">Breath</span></div>
+          <div onClick="{{setManualMode}}" style="flex:1;text-align:center;padding:8px 0;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;background:{{manualBg}};color:{{manualFg}};transition:background .2s">Manual</div>
+        </div>
+        <sc-if value="{{breathModeOn}}" hint-placeholder-val="{{false}}">
+          <div style="display:flex;align-items:center;justify-content:space-between;background:{{cardBg}};border-radius:12px;padding:12px 14px;margin-bottom:14px;border:1px solid {{dividerColor}}">
+            <div style="font-size:13px;color:{{ink}};font-weight:600">Transition Tone</div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div onClick="{{previewTone}}" style="width:22px;height:22px;border-radius:11px;background:{{dividerColor}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{ink}};font-size:8px">{{toneIcon}}</div>
+              <div onClick="{{toggleMusic}}" style="width:36px;height:20px;border-radius:10px;background:{{musicTrackBg}};position:relative;cursor:pointer;transition:background .2s">
+                <div style="width:16px;height:16px;border-radius:8px;background:#fff;position:absolute;top:2px;left:{{musicKnobLeft}};transition:left .2s"></div>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:{{cardBg}};border-radius:12px;padding:12px 14px;margin-bottom:14px;border:1px solid {{dividerColor}}">
+          <div style="font-size:13px;color:{{ink}};font-weight:600">Novia Mode</div>
+          <div onClick="{{toggleNoviaMode}}" style="width:36px;height:20px;border-radius:10px;background:{{noviaTrackBg}};position:relative;cursor:pointer;transition:background .2s;flex-shrink:0">
+            <div style="width:16px;height:16px;border-radius:8px;background:#fff;position:absolute;top:2px;left:{{noviaKnobLeft}};transition:left .2s"></div>
+          </div>
+        </div>
+        <div style="flex:1"></div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
+          <div onClick="{{startSession}}" style="cursor:pointer;background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}};display:flex;align-items:center;gap:12px">
+            <div style="width:34px;height:34px;border-radius:10px;background:{{accent}};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700">B</div>
+            <div style="display:flex;flex-direction:column;gap:1px;min-width:0;flex:1">
+              <div style="font-size:14px;font-weight:600;color:{{ink}}">Boomer Back Routine</div>
+              <div style="font-size:12px;color:{{muted}}">{{routineCountLabel}}</div>
+            </div>
+            <div style="color:{{muted}};font-size:14px">›</div>
+          </div>
+          <div onClick="{{goByor}}" style="cursor:pointer;background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}};display:flex;align-items:center;gap:12px">
+            <div style="width:34px;height:34px;border-radius:10px;background:{{cardBg2}};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;color:{{ink}};font-weight:700">＋</div>
+            <div style="display:flex;flex-direction:column;gap:1px;min-width:0;flex:1">
+              <div style="font-size:14px;font-weight:600;color:{{ink}}">Build Your Own Routine</div>
+              <div style="font-size:12px;color:{{muted}}">Pick poses from the library</div>
+            </div>
+            <div style="color:{{muted}};font-size:14px">›</div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isByor}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top)) 24px 24px;overflow:auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+          <div onClick="{{goStretchChoose}}" style="width:28px;height:28px;border-radius:10px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{muted}};font-size:13px">←</div>
+          <div style="font-size:15px;font-weight:600;color:{{ink}}">Build Your Own Routine</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:80px">
+          <sc-for list="{{byorPoses}}" as="p" hint-placeholder-count="6">
+            <div onClick="{{p.toggle}}" style="cursor:pointer;background:{{p.bg}};border-radius:10px;padding:11px 13px;display:flex;align-items:center;gap:10px;border:1px solid {{p.border}}">
+              <div style="width:26px;height:26px;border-radius:13px;background:{{p.checkBg}};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700">{{p.checkLabel}}</div>
+              <div style="display:flex;flex-direction:column;gap:1px;min-width:0;flex:1">
+                <div style="display:flex;align-items:center;gap:6px">
+                  <div style="font-size:13px;font-weight:600;color:{{ink}}">{{p.name}}</div>
+                  <sc-if value="{{p.sideCapable}}" hint-placeholder-val="{{false}}">
+                    <div style="font-size:9px;font-weight:600;color:{{muted}};background:{{dividerColor}};padding:2px 5px;border-radius:6px;flex-shrink:0">L/R</div>
+                  </sc-if>
+                </div>
+                <div style="font-size:11px;color:{{muted}}">{{p.group}}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:24px">
+          <button onClick="{{startByorRoutine}}" disabled="{{byorEmpty}}" style="width:100%;background:{{accent}};color:#fff;border:none;border-radius:12px;padding:14px;font-size:14px;font-weight:600;cursor:pointer;opacity:{{byorButtonOpacity}}">{{byorButtonLabel}}</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isSession}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top)) 24px 28px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div onClick="{{goHome}}" style="width:36px;height:36px;border-radius:12px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{muted}};font-size:16px">✕</div>
+          <div style="font-size:10px;color:{{muted}};opacity:0.55;letter-spacing:0.02em">{{stepNumberLabel}}</div>
+          <div onClick="{{togglePhotoView}}" style="width:36px;height:36px;border-radius:12px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;font-size:13px">{{photoToggleContent}}</div>
+        </div>
+        <div style="height:4px;background:{{cardBg}};border-radius:2px;margin-bottom:26px;overflow:hidden">
+          <div style="height:100%;background:{{accent}};width:{{progressPctLabel}};transition:width .3s"></div>
+        </div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center">
+          <div style="position:relative;width:300px;height:230px;border-radius:20px;overflow:hidden;background:{{circleBg}};animation:{{breatheAnim}}">
+            <div style="position:absolute;left:0;right:0;bottom:0;height:14px;background:{{matColor}}"></div>
+            <sc-if value="{{isFrontView}}" hint-placeholder-val="{{false}}">
+              <svg width="300" height="230" viewBox="0 40 200 112" style="position:absolute;left:0;top:0;transform:{{frontMirror}}" preserveAspectRatio="xMidYMax meet">
+                <line x1="{{frontPose.hipC.0}}" y1="{{frontPose.hipC.1}}" x2="{{frontPose.shoulderC.0}}" y2="{{frontPose.shoulderC.1}}" stroke="{{topColor}}" stroke-width="16" stroke-linecap="round"></line>
+                <line x1="{{frontPose.hipC.0}}" y1="{{frontPose.hipC.1}}" x2="{{frontPose.kneeExt.0}}" y2="{{frontPose.kneeExt.1}}" stroke="{{legColor}}" stroke-width="15" stroke-linecap="round"></line>
+                <line x1="{{frontPose.kneeExt.0}}" y1="{{frontPose.kneeExt.1}}" x2="{{frontPose.footExt.0}}" y2="{{frontPose.footExt.1}}" stroke="{{legColor}}" stroke-width="13" stroke-linecap="round"></line>
+                <line x1="{{frontPose.hipC.0}}" y1="{{frontPose.hipC.1}}" x2="{{frontPose.kneeBent.0}}" y2="{{frontPose.kneeBent.1}}" stroke="{{legColor}}" stroke-width="15" stroke-linecap="round"></line>
+                <line x1="{{frontPose.kneeBent.0}}" y1="{{frontPose.kneeBent.1}}" x2="{{frontPose.footBent.0}}" y2="{{frontPose.footBent.1}}" stroke="{{legColor}}" stroke-width="13" stroke-linecap="round"></line>
+                <line x1="{{frontPose.shoulderL.0}}" y1="{{frontPose.shoulderL.1}}" x2="{{frontPose.hand.0}}" y2="{{frontPose.hand.1}}" stroke="{{skinColor}}" stroke-width="9" stroke-linecap="round"></line>
+                <line x1="{{frontPose.shoulderR.0}}" y1="{{frontPose.shoulderR.1}}" x2="{{frontPose.hand.0}}" y2="{{frontPose.hand.1}}" stroke="{{skinColor}}" stroke-width="9" stroke-linecap="round"></line>
+                <line x1="{{frontPose.shoulderL.0}}" y1="{{frontPose.shoulderL.1}}" x2="{{frontPose.shoulderR.0}}" y2="{{frontPose.shoulderR.1}}" stroke="{{topColor}}" stroke-width="14" stroke-linecap="round"></line>
+                <line x1="{{frontPose.footExtBar.x1}}" y1="{{frontPose.footExtBar.y1}}" x2="{{frontPose.footExtBar.x2}}" y2="{{frontPose.footExtBar.y2}}" stroke="{{skinColor}}" stroke-width="9" stroke-linecap="round"></line>
+                <line x1="{{frontPose.footBentBar.x1}}" y1="{{frontPose.footBentBar.y1}}" x2="{{frontPose.footBentBar.x2}}" y2="{{frontPose.footBentBar.y2}}" stroke="{{skinColor}}" stroke-width="9" stroke-linecap="round"></line>
+                <circle cx="{{frontPose.kneeExt.0}}" cy="{{frontPose.kneeExt.1}}" r="6" fill="{{topColor}}"></circle>
+                <circle cx="{{frontPose.kneeBent.0}}" cy="{{frontPose.kneeBent.1}}" r="6" fill="{{topColor}}"></circle>
+                <circle cx="{{frontPose.head.0}}" cy="{{frontPose.head.1}}" r="15" fill="{{skinColor}}"></circle>
+              </svg>
+            </sc-if>
+            <svg width="300" height="230" viewBox="0 40 200 112" style="position:absolute;left:0;top:0;display:{{sideViewDisplay}};transform:{{sideMirror}}" preserveAspectRatio="xMidYMax meet">
+              <path d="{{fig.spinePath}}" stroke="{{topColor}}" stroke-width="16" fill="none" stroke-linecap="round"></path>
+              <line x1="{{fig.hipX}}" y1="{{fig.hipY}}" x2="{{fig.backKneeX}}" y2="{{fig.backKneeY}}" stroke="{{legColor}}" stroke-width="14" stroke-linecap="round"></line>
+              <line x1="{{fig.backKneeX}}" y1="{{fig.backKneeY}}" x2="{{fig.backFootX}}" y2="{{fig.backFootY}}" stroke="{{legColor}}" stroke-width="12" stroke-linecap="round"></line>
+              <line x1="{{fig.hipX}}" y1="{{fig.hipY}}" x2="{{fig.kneeX}}" y2="{{fig.kneeY}}" stroke="{{legColor}}" stroke-width="15" stroke-linecap="round"></line>
+              <line x1="{{fig.kneeX}}" y1="{{fig.kneeY}}" x2="{{fig.footX}}" y2="{{fig.footY}}" stroke="{{legColor}}" stroke-width="13" stroke-linecap="round"></line>
+              <line x1="{{fig.shoulderX}}" y1="{{fig.shoulderY}}" x2="{{fig.elbowX}}" y2="{{fig.elbowY}}" stroke="{{skinColor}}" stroke-width="10" stroke-linecap="round"></line>
+              <line x1="{{fig.elbowX}}" y1="{{fig.elbowY}}" x2="{{fig.handX}}" y2="{{fig.handY}}" stroke="{{skinColor}}" stroke-width="8.5" stroke-linecap="round"></line>
+              <line x1="{{fig.footTip.x1}}" y1="{{fig.footTip.y1}}" x2="{{fig.footTip.x2}}" y2="{{fig.footTip.y2}}" stroke="{{skinColor}}" stroke-width="9" stroke-linecap="round"></line>
+              <line x1="{{fig.handTip.x1}}" y1="{{fig.handTip.y1}}" x2="{{fig.handTip.x2}}" y2="{{fig.handTip.y2}}" stroke="{{skinColor}}" stroke-width="9" stroke-linecap="round"></line>
+              <line x1="{{fig.shoulderX}}" y1="{{fig.shoulderY}}" x2="{{fig.headX}}" y2="{{fig.headY}}" stroke="{{skinColor}}" stroke-width="11" stroke-linecap="round"></line>
+              <sc-if value="{{showKneeDot}}" hint-placeholder-val="{{true}}">
+                <circle cx="{{fig.kneeX}}" cy="{{fig.kneeY}}" r="6" fill="{{topColor}}"></circle>
+              </sc-if>
+              <circle cx="{{fig.headX}}" cy="{{fig.headY}}" r="15" fill="{{skinColor}}"></circle>
+            </svg>
+          </div>
+        </div>
+        <sc-if value="{{step.side}}" hint-placeholder-val="{{false}}">
+          <div style="text-align:center;margin-bottom:8px">
+            <div style="display:inline-block;background:{{cardBg}};color:{{muted}};font-size:12px;font-weight:600;padding:4px 10px;border-radius:10px">{{step.sideLabel}}</div>
+          </div>
+        </sc-if>
+        <div style="text-align:center;font-size:18px;font-weight:600;color:{{ink}};margin-bottom:5px">{{step.name}}{{step.variantSuffix}}</div>
+        <div style="text-align:center;font-size:13px;color:{{muted}};margin-bottom:5px">{{step.cue}}</div>
+        <div style="text-align:center;font-size:12px;color:{{accent}};font-weight:600;margin-bottom:18px">{{repTimeLabel}}</div>
+        <div style="display:flex;gap:10px">
+          <button onClick="{{prevStep}}" disabled="{{isFirstStep}}" style="background:{{cardBg}};color:{{ink}};opacity:{{prevOpacity}};border:none;border-radius:12px;padding:14px;font-size:14px;font-weight:600;cursor:pointer;width:60px">←</button>
+          <button onClick="{{nextStep}}" style="flex:1;background:{{accent}};color:#fff;border:none;border-radius:12px;padding:14px;font-size:14px;font-weight:600;cursor:pointer">{{nextButtonLabel}}</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{showPhotoOverlay}}" hint-placeholder-val="{{false}}">
+      <div style="position:absolute;inset:0;background:oklch(0.2 0.012 240);z-index:20;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top)) 24px 28px;animation:photoSnapIn 0.28s cubic-bezier(0.2,0.9,0.3,1) both">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div onClick="{{goHome}}" style="width:36px;height:36px;border-radius:12px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{muted}};font-size:16px">✕</div>
+          <div style="font-size:10px;color:{{muted}};opacity:0.55;letter-spacing:0.02em">{{stepNumberLabel}}</div>
+          <div onClick="{{togglePhotoView}}" style="width:36px;height:36px;border-radius:12px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px">🤸</div>
+        </div>
+        <div style="height:4px;background:{{cardBg}};border-radius:2px;margin-bottom:26px;overflow:hidden">
+          <div style="height:100%;background:{{accent}};width:{{progressPctLabel}};transition:width .3s"></div>
+        </div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0">
+          <sc-if value="{{step.showPhoto}}" hint-placeholder-val="{{false}}">
+            <img data-photo-slot="true" alt="{{step.name}} demonstration" style="width:300px;height:230px;border-radius:20px;object-fit:cover">
+          </sc-if>
+          <sc-if value="{{step.noPhoto}}" hint-placeholder-val="{{true}}">
+            <div style="width:300px;height:230px;border-radius:20px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;text-align:center;color:{{muted}};font-size:13px;padding:0 30px">Photo coming soon for this pose</div>
+          </sc-if>
+        </div>
+        <sc-if value="{{step.side}}" hint-placeholder-val="{{false}}">
+          <div style="text-align:center;margin-bottom:8px;margin-top:18px">
+            <div style="display:inline-block;background:{{cardBg}};color:{{muted}};font-size:12px;font-weight:600;padding:4px 10px;border-radius:10px">{{step.sideLabel}}</div>
+          </div>
+        </sc-if>
+        <div style="text-align:center;font-size:18px;font-weight:600;color:{{ink}};margin-top:{{photoTitleMarginTop}};margin-bottom:5px">{{step.name}}{{step.variantSuffix}}</div>
+        <div style="text-align:center;font-size:13px;color:{{muted}};margin-bottom:5px">{{step.cue}}</div>
+        <div style="text-align:center;font-size:12px;color:{{accent}};font-weight:600;margin-bottom:18px">{{repTimeLabel}}</div>
+        <div style="display:flex;gap:10px">
+          <button onClick="{{prevStep}}" disabled="{{isFirstStep}}" style="background:{{cardBg}};color:{{ink}};opacity:{{prevOpacity}};border:none;border-radius:12px;padding:14px;font-size:14px;font-weight:600;cursor:pointer;width:60px">←</button>
+          <button onClick="{{nextStep}}" style="flex:1;background:{{accent}};color:#fff;border:none;border-radius:12px;padding:14px;font-size:14px;font-weight:600;cursor:pointer">{{nextButtonLabel}}</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isComplete}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;gap:14px">
+        <div style="width:52px;height:52px;border-radius:26px;border:2px solid {{accent}};display:flex;align-items:center;justify-content:center;font-size:20px;color:{{accent}}">✓</div>
+        <div style="font-size:19px;font-weight:600;color:{{ink}}">{{completionTitle}}</div>
+        <div style="font-size:13px;color:{{muted}};margin-bottom:6px">{{completionSubtitle}}</div>
+        <div style="display:flex;gap:12px;width:100%;margin-bottom:8px">
+          <div style="flex:1;background:{{cardBg}};border-radius:12px;padding:14px">
+            <div style="font-size:20px;font-weight:700;color:{{accent}}">{{stats.streak}}</div>
+            <div style="font-size:11px;color:{{muted}}">day streak</div>
+          </div>
+          <div style="flex:1;background:{{cardBg}};border-radius:12px;padding:14px">
+            <div style="font-size:20px;font-weight:700;color:{{ink}}">{{stats.totalLabel}}</div>
+            <div style="font-size:11px;color:{{muted}}">lifetime</div>
+          </div>
+        </div>
+        <button onClick="{{goHome}}" style="width:100%;background:{{accent}};color:#fff;border:none;border-radius:12px;padding:14px;font-size:14px;font-weight:600;cursor:pointer">Back to home</button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isLibrary}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top)) 24px 24px;overflow:auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+          <div onClick="{{goHome}}" style="width:28px;height:28px;border-radius:10px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{muted}};font-size:13px">←</div>
+          <div style="font-size:15px;font-weight:600;color:{{ink}}">Pose Library</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{libraryPoses}}" as="p" hint-placeholder-count="6">
+            <div style="background:{{cardBg}};border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;border:1px solid {{dividerColor}}">
+              <div style="width:32px;height:32px;border-radius:10px;background:{{accent}};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;font-weight:700">{{p.initial}}</div>
+              <div style="display:flex;flex-direction:column;gap:1px;min-width:0;flex:1">
+                <div style="display:flex;align-items:center;gap:6px">
+                  <div style="font-size:13px;font-weight:600;color:{{ink}}">{{p.name}}</div>
+                  <sc-if value="{{p.sideCapable}}" hint-placeholder-val="{{false}}">
+                    <div style="font-size:9px;font-weight:600;color:{{muted}};background:{{dividerColor}};padding:2px 5px;border-radius:6px;flex-shrink:0">L/R</div>
+                  </sc-if>
+                </div>
+                <div style="font-size:11px;color:{{muted}}">{{p.group}}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isProfile}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top)) 24px 24px;overflow:auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px">
+          <div onClick="{{goHome}}" style="width:28px;height:28px;border-radius:10px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{muted}};font-size:13px">←</div>
+          <div style="font-size:15px;font-weight:600;color:{{ink}}">Profile</div>
+        </div>
+        <div style="font-size:12px;color:{{muted}};margin-bottom:16px">Member since {{stats.accountCreatedLabel}}</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:{{cardBg}};border-radius:12px;padding:12px 14px;margin-bottom:14px;border:1px solid {{dividerColor}}">
+          <div style="display:flex;flex-direction:column;gap:1px">
+            <div style="font-size:13px;color:{{ink}};font-weight:600">Weekly Goal</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div onClick="{{decGoal}}" style="width:26px;height:26px;border-radius:8px;background:{{dividerColor}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{ink}};font-size:15px;font-weight:600">−</div>
+            <div style="font-size:15px;font-weight:700;color:{{ink}};min-width:14px;text-align:center">{{weeklyGoal}}</div>
+            <div onClick="{{incGoal}}" style="width:26px;height:26px;border-radius:8px;background:{{dividerColor}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{ink}};font-size:15px;font-weight:600">+</div>
+          </div>
+        </div>
+        <div style="background:{{cardBg}};border-radius:12px;padding:12px 14px;margin-bottom:14px;border:1px solid {{dividerColor}}">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:28px;height:28px;border-radius:9px;background:{{dividerColor}};display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">💧</div>
+              <div style="display:flex;flex-direction:column;gap:1px">
+                <div style="font-size:13px;color:{{ink}};font-weight:600">Water Reminder</div>
+                <div style="font-size:10.5px;color:{{muted}}">{{waterReminderSummary}}</div>
+              </div>
+            </div>
+            <div onClick="{{toggleWaterReminder}}" style="width:36px;height:20px;border-radius:10px;background:{{waterTrackBg}};position:relative;cursor:pointer;transition:background .2s;flex-shrink:0">
+              <div style="width:16px;height:16px;border-radius:8px;background:#fff;position:absolute;top:2px;left:{{waterKnobLeft}};transition:left .2s"></div>
+            </div>
+          </div>
+          <sc-if value="{{waterReminderOn}}" hint-placeholder-val="{{false}}">
+            <div style="margin-top:14px;padding-top:14px;border-top:1px solid {{dividerColor}};display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div style="font-size:12px;color:{{muted}}">Time (EST)</div>
+                <input type="time" value="{{waterReminderTime}}" onChange="{{onReminderTimeChange}}" style="background:{{dividerColor}};color:{{ink}};border:none;border-radius:8px;padding:6px 10px;font-size:13px;font-weight:600;font-family:inherit" />
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-size:12px;color:{{muted}}">Message</div>
+                <input type="text" value="{{waterReminderMsg}}" onChange="{{onReminderMsgChange}}" maxlength="60" style="background:{{dividerColor}};color:{{ink}};border:none;border-radius:8px;padding:8px 10px;font-size:13px;font-family:inherit" />
+              </div>
+              <div onClick="{{sendTestReminder}}" style="text-align:center;font-size:12px;color:{{accent}};font-weight:600;cursor:pointer;padding-top:2px">Send test notification</div>
+            </div>
+          </sc-if>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+          <div style="background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}}">
+            <div style="font-size:20px;font-weight:700;color:{{accent}}">{{stats.streak}}</div>
+            <div style="font-size:12px;color:{{muted}}">day streak</div>
+          </div>
+          <div style="background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}}">
+            <div style="font-size:20px;font-weight:700;color:{{ink}}">{{stats.totalMinutesLabel}}</div>
+            <div style="font-size:12px;color:{{muted}}">total minutes</div>
+          </div>
+          <div style="background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}}">
+            <div style="font-size:20px;font-weight:700;color:{{ink}}">{{stats.totalSessions}}</div>
+            <div style="font-size:12px;color:{{muted}}">total sessions</div>
+          </div>
+          <div style="background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}}">
+            <div style="font-size:20px;font-weight:700;color:{{ink}}">{{stats.totalBreaths}}</div>
+            <div style="font-size:12px;color:{{muted}}">total breaths</div>
+          </div>
+        </div>
+        <div style="font-size:13px;font-weight:600;color:{{ink}};margin-bottom:8px">Stats</div>
+        <div style="display:flex;align-items:center;background:{{cardBg}};border-radius:10px;padding:4px;margin-bottom:10px;border:1px solid {{dividerColor}}">
+          <div onClick="{{setStatsCatAll}}" style="flex:1;text-align:center;padding:7px 0;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;background:{{catAllBg}};color:{{catAllFg}}">All</div>
+          <div onClick="{{setStatsCatMeditate}}" style="flex:1;text-align:center;padding:7px 0;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;background:{{catMeditateBg}};color:{{catMeditateFg}}">Meditation</div>
+          <div onClick="{{setStatsCatStretch}}" style="flex:1;text-align:center;padding:7px 0;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;background:{{catStretchBg}};color:{{catStretchFg}}">Stretching</div>
+        </div>
+        <div style="display:flex;align-items:center;background:{{cardBg}};border-radius:10px;padding:4px;margin-bottom:10px;border:1px solid {{dividerColor}}">
+          <div onClick="{{setStatsDaily}}" style="flex:1;text-align:center;padding:7px 0;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;background:{{dailyBg}};color:{{dailyFg}}">Daily</div>
+          <div onClick="{{setStatsWeekly}}" style="flex:1;text-align:center;padding:7px 0;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;background:{{weeklyBg}};color:{{weeklyFg}}">Weekly</div>
+          <div onClick="{{setStatsMonthly}}" style="flex:1;text-align:center;padding:7px 0;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;background:{{monthlyBg}};color:{{monthlyFg}}">Monthly</div>
+        </div>
+        <div style="background:{{cardBg}};border-radius:12px;padding:12px 14px;margin-bottom:10px;border:1px solid {{dividerColor}}">
+          <div style="font-size:18px;font-weight:700;color:{{accent}}">{{periodMinutesLabel}}</div>
+          <div style="font-size:12px;color:{{muted}}">time spent · {{periodLabel}}</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px">
+          <div style="background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}}">
+            <div style="font-size:18px;font-weight:700;color:{{ink}}">{{catSessions}}</div>
+            <div style="font-size:11px;color:{{muted}}">sessions</div>
+          </div>
+          <div style="background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}}">
+            <div style="font-size:18px;font-weight:700;color:{{ink}}">{{catAvgLabel}}</div>
+            <div style="font-size:11px;color:{{muted}}">avg session</div>
+          </div>
+          <div style="background:{{cardBg}};border-radius:12px;padding:14px;border:1px solid {{dividerColor}};grid-column:span 2">
+            <div style="font-size:15px;font-weight:700;color:{{ink}}">{{catExtraLabel}}</div>
+            <div style="font-size:11px;color:{{muted}}">{{catExtraCaption}}</div>
+          </div>
+        </div>
+        <div style="font-size:13px;font-weight:600;color:{{ink}};margin-bottom:8px">Last 5 weeks</div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:20px">
+          <sc-for list="{{cells}}" as="c" hint-placeholder-count="35">
+            <div style="width:100%;aspect-ratio:1;border-radius:5px;background:{{c.bg}}"></div>
+          </sc-for>
+        </div>
+        <div onClick="{{goLibrary}}" style="text-align:center;font-size:12px;color:{{accent}};font-weight:600;cursor:pointer">Browse pose library →</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isMeditateList}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top)) 24px 24px;overflow:auto">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+          <div onClick="{{goMeditateDuration}}" style="width:28px;height:28px;border-radius:10px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{muted}};font-size:13px">←</div>
+          <div style="font-size:15px;font-weight:600;color:{{ink}}">Meditate</div>
+        </div>
+        <sc-if value="{{hasMeditations}}" hint-placeholder-val="{{false}}">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{meditations}}" as="m" hint-placeholder-count="5">
+              <div onClick="{{m.select}}" style="cursor:pointer;background:{{cardBg}};border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;border:1px solid {{dividerColor}}">
+                <div style="width:32px;height:32px;border-radius:10px;background:{{cardBg2}};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px">🧘</div>
+                <div style="display:flex;flex-direction:column;gap:1px;min-width:0;flex:1">
+                  <div style="font-size:13px;font-weight:600;color:{{ink}}">{{m.name}}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{noMeditations}}" hint-placeholder-val="{{true}}">
+          <div style="flex:1;display:flex;align-items:center;justify-content:center;text-align:center;color:{{muted}};font-size:14px;padding:40px 20px">Your meditations will appear here once added.</div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isMeditateSession}}" hint-placeholder-val="{{false}}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top)) 24px 28px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div onClick="{{exitMeditation}}" style="width:28px;height:28px;border-radius:10px;background:{{cardBg}};display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{muted}};font-size:13px">✕</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px">
+          <div style="width:180px;height:180px;border-radius:90px;background:{{cardBg2}};display:flex;align-items:center;justify-content:center;overflow:hidden;animation:breathe 6s ease-in-out infinite">
+            <img src="assets/meditator-icon-v6.png" alt="meditating" style="width:150px;height:auto" />
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:17px;font-weight:600;color:{{ink}}">{{currentMeditationName}}</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div onClick="{{seekMeditation}}" style="position:relative;height:4px;background:{{cardBg}};border-radius:2px;cursor:pointer">
+            <div style="position:absolute;left:0;top:0;bottom:0;background:#fff;border-radius:2px;width:{{medProgressPct}}"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:{{muted}};letter-spacing:0.02em">
+            <span>{{meditationElapsedLabel}}</span>
+            <span>{{meditationTimeLabel}}</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:26px;margin-top:18px">
+          <div onClick="{{prevMeditation}}" style="cursor:pointer;color:{{ink}};font-size:20px;width:32px;text-align:center;opacity:0.85">⏮</div>
+          <div onClick="{{toggleMeditationPause}}" style="width:58px;height:58px;border-radius:29px;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#0d1114;font-size:18px">{{medPlayIcon}}</div>
+          <div onClick="{{nextMeditation}}" style="cursor:pointer;color:{{ink}};font-size:20px;width:32px;text-align:center;opacity:0.85">⏭</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:22px;margin-top:14px">
+          <div onClick="{{previewTone}}" style="cursor:pointer;color:{{accent}};font-size:13px;width:28px;text-align:center;opacity:0.8">♪</div>
+          <div onClick="{{toggleMeditationLoop}}" style="cursor:pointer;color:{{loopColor}};font-size:13px;width:28px;text-align:center;opacity:0.8">↻</div>
+        </div>
+      </div>
+    </sc-if>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: {&quot;width&quot;: 390, &quot;height&quot;: 844},
+  &quot;accentColor&quot;: {&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#3E7CA6&quot;,&quot;options&quot;:[&quot;#3E7CA6&quot;,&quot;#2F8F82&quot;,&quot;#7A6FB0&quot;,&quot;#C1714A&quot;],&quot;tsType&quot;:&quot;string&quot;},
+  &quot;breathSeconds&quot;: {&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:10,&quot;min&quot;:3,&quot;max&quot;:15,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;unit&quot;:&quot;s&quot;,&quot;section&quot;:&quot;Session pacing&quot;},
+  &quot;autoAdvance&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Session pacing&quot;},
+  &quot;previewScreen&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Normal app flow&quot;,&quot;options&quot;:[&quot;Normal app flow&quot;,&quot;Intro&quot;,&quot;Loading&quot;,&quot;Home&quot;,&quot;Library&quot;,&quot;Profile&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Editing&quot;}
+}">
+class Component extends DCLogic {
+  static POSES = {
+    tabletop:[70,96,50,146,15,148,130,94,130,118,130,142,148,80,0],
+    cow:[68,92,50,140,22,140,128,90,130,118,130,142,150,64,0.6],
+    cat:[74,100,50,140,22,140,124,102,130,118,130,142,128,108,-0.6],
+    downdog:[100,50,65,100,26,144,150,95,160,120,178,144,163,108,-0.05],
+    tabletop_hover:[72,100,50,120,18,147,128,96,130,118,130,142,146,82,0],
+    seated_upright_wide:[100,138,60,140,20,138,90,95,75,110,55,122,85,80,-0.15],
+    wide_fold:[100,138,60,140,20,138,85,110,65,120,40,128,72,122,0.6],
+    seated_upright_butterfly:[100,138,60,140,20,138,90,95,75,112,60,128,85,80,-0.1],
+    butterfly:[100,138,70,124,90,138,104,98,90,112,90,132,108,82,0.15],
+    seated_upright_figure4:[90,136,140,140,178,138,80,95,95,112,115,126,72,80,-0.1],
+    figure4:[90,136,122,128,142,124,104,102,90,114,115,120,108,86,0.35],
+    seated_upright_lordfish:[90,136,140,140,178,138,80,95,95,112,115,126,70,80,-0.1],
+    lordfish:[90,136,118,105,122,142,110,86,88,94,125,98,120,66,-0.3],
+    pigeon_entry:[86,132,50,124,30,130,95,90,85,108,75,120,100,76,-0.1,130,140,168,142],
+    pigeon:[86,132,50,124,30,130,55,110,40,120,30,128,45,118,0.5,130,140,168,142],
+    seated_upright_forward:[80,136,125,138,170,138,70,90,90,108,115,122,65,76,-0.15],
+    seated_forward_fold:[80,136,125,138,170,138,105,120,130,128,160,134,115,130,0.55],
+    bridge_down:[90,140,130,120,155,140,45,140,35,140,25,140,20,140,0],
+    bridge_up:[90,108,125,118,150,140,45,140,35,140,25,140,20,140,-0.35],
+    single_leg_stretch:[90,140,72,90,58,60,45,138,62,105,66,82,20,138,0],
+    knee_to_chest:[90,138,72,88,88,118,45,136,58,112,80,102,20,136,0.15],
+    twist:[90,135,118,128,136,140,45,132,30,128,15,124,20,132,0.1],
+    reclined_knees_up:[90,140,90,95,95,140,45,138,30,140,15,140,20,138,0],
+    happy_baby:[90,138,70,92,78,58,42,132,58,100,75,66,20,136,0.15],
+    hug_knees:[90,130,60,85,70,70,48,115,58,100,65,90,30,105,0.65],
+    savasana:[100,140,140,140,178,140,45,140,40,146,25,148,15,140,0]
+  };
+  static arrToFig(a){ return {hipX:a[0],hipY:a[1],kneeX:a[2],kneeY:a[3],footX:a[4],footY:a[5],shoulderX:a[6],shoulderY:a[7],elbowX:a[8],elbowY:a[9],handX:a[10],handY:a[11],headX:a[12],headY:a[13],spineBow:a[14]||0,backKneeX:a[15]??a[0],backKneeY:a[16]??a[1],backFootX:a[17]??a[0],backFootY:a[18]??a[1]}; }
+  static lerp(a,b,t){ return a+(b-a)*t; }
+  static lerpFig(fa,fb,t){ const r={}; for (const k in fa) r[k]=Component.lerp(fa[k],fb[k],t); return r; }
+  static plate(px,py,cx,cy,len){ const dir = cx>=px?1:-1; return {x1:cx,y1:cy,x2:cx+dir*len,y2:cy+2}; }
+  static perpBar(px,py,cx,cy,half){
+    const dx=cx-px, dy=cy-py, len=Math.hypot(dx,dy)||1, ux=-dy/len, uy=dx/len;
+    return {x1:cx-ux*half,y1:cy-uy*half,x2:cx+ux*half,y2:cy+uy*half};
+  }
+
+  static FRONT_POSES = {
+    seated_fold_neutral: { hipC:[100,132], shoulderC:[100,90], shoulderL:[85,92], shoulderR:[115,88], head:[100,72],
+      kneeExt:[145,136], footExt:[182,138], kneeBent:[75,116], footBent:[112,140], hand:[100,120] },
+    seated_fold: { hipC:[100,132], shoulderC:[136,110], shoulderL:[123,112], shoulderR:[149,108], head:[146,100],
+      kneeExt:[145,136], footExt:[182,138], kneeBent:[75,116], footBent:[112,140], hand:[178,132] },
+    seated_upright_wide: { hipC:[100,136], shoulderC:[100,92], shoulderL:[85,94], shoulderR:[115,90], head:[100,74],
+      kneeExt:[145,140], footExt:[175,142], kneeBent:[55,140], footBent:[25,142], hand:[100,118] },
+    wide_fold: { hipC:[100,136], shoulderC:[100,120], shoulderL:[88,122], shoulderR:[112,120], head:[100,128],
+      kneeExt:[145,140], footExt:[175,142], kneeBent:[55,140], footBent:[25,142], hand:[100,148] },
+    seated_upright_butterfly: { hipC:[100,138], shoulderC:[100,94], shoulderL:[85,96], shoulderR:[115,92], head:[100,76],
+      kneeExt:[135,130], footExt:[112,148], kneeBent:[65,130], footBent:[88,148], hand:[100,120] },
+    butterfly: { hipC:[100,138], shoulderC:[100,116], shoulderL:[88,118], shoulderR:[112,116], head:[100,124],
+      kneeExt:[135,130], footExt:[112,148], kneeBent:[65,130], footBent:[88,148], hand:[100,142] },
+    seated_upright_figure4: { hipC:[100,140], shoulderC:[100,96], shoulderL:[85,98], shoulderR:[115,94], head:[100,78],
+      kneeExt:[130,110], footExt:[140,140], kneeBent:[100,108], footBent:[145,112], hand:[100,122] },
+    figure4: { hipC:[100,140], shoulderC:[100,118], shoulderL:[88,120], shoulderR:[112,118], head:[100,126],
+      kneeExt:[130,110], footExt:[140,140], kneeBent:[100,108], footBent:[145,112], hand:[100,140] },
+    pigeon_entry: { hipC:[100,136], shoulderC:[100,94], shoulderL:[85,96], shoulderR:[115,92], head:[100,76],
+      kneeExt:[50,130], footExt:[125,138], kneeBent:[150,145], footBent:[185,148], hand:[100,118] },
+    pigeon: { hipC:[100,136], shoulderC:[75,116], shoulderL:[62,118], shoulderR:[88,114], head:[65,124],
+      kneeExt:[50,130], footExt:[125,138], kneeBent:[150,145], footBent:[185,148], hand:[55,132] },
+    seated_upright_forward: { hipC:[100,138], shoulderC:[100,92], shoulderL:[85,94], shoulderR:[115,90], head:[100,74],
+      kneeExt:[112,140], footExt:[122,142], kneeBent:[88,140], footBent:[78,142], hand:[100,120] },
+    seated_forward_fold: { hipC:[100,138], shoulderC:[100,118], shoulderL:[88,120], shoulderR:[112,118], head:[100,126],
+      kneeExt:[112,140], footExt:[122,142], kneeBent:[88,140], footBent:[78,142], hand:[100,138] }
+  };
+  static lerpFrontPose(a,b,t){
+    const r={};
+    for (const k in a) {
+      const av=a[k], bv=b[k];
+      r[k] = Array.isArray(av) ? [Component.lerp(av[0],bv[0],t), Component.lerp(av[1],bv[1],t)] : Component.lerp(av,bv,t);
+    }
+    return r;
+  }
+
+  static MEDITATIONS = [
+    { name:'Positive Energy', file:'meditations/5min/positive-energy.mp3', duration:5 },
+    { name:'Manifestation', file:'meditations/5min/manifestation.mp3', duration:5 },
+    { name:'Anyone Can Do Anywhere', file:'meditations/5min/anyone-anywhere.mp3', duration:5 },
+    { name:'Before Sleep', file:'meditations/5min/before-sleep.mp3', duration:5 },
+    { name:'Breathe & Relax', file:'meditations/5min/breathe-relax.mp3', duration:5 },
+    { name:'For Anxiety', file:'meditations/5min/anxiety.mp3', duration:5 },
+    { name:'For Focus', file:'meditations/5min/focus.mp3', duration:5 },
+    { name:'For Gratitude', file:'meditations/5min/gratitude.mp3', duration:5 },
+    { name:'Focus & Clarity', file:'meditations/5min/focus-clarity.mp3', duration:5 },
+    { name:'Morning Anxiety', file:'meditations/5min/morning-anxiety.mp3', duration:5 },
+    { name:'Morning — A Great Day', file:'meditations/5min/great-day.mp3', duration:5 },
+    { name:'Morning Meditation', file:'meditations/5min/morning.mp3', duration:5 },
+    { name:'Positivity', file:'meditations/5min/positivity.mp3', duration:5 },
+    { name:'A Positive Guided Meditation', file:'meditations/5min/positive-guided.mp3', duration:5 },
+    { name:'Morning Gratitude', file:'meditations/5min/morning-gratitude.mp3', duration:5 },
+    { name:'Meditation Break', file:'meditations/5min/meditation-break.mp3', duration:5 },
+    { name:'Positive Thinking', file:'meditations/5min/positive-thinking.mp3', duration:5 },
+    { name:'For Sleep', file:'meditations/5min/for-sleep.mp3', duration:5 },
+    { name:'Clear Your Mind', file:'meditations/5min/clear-mind.mp3', duration:5 },
+    { name:'Mindfulness', file:'meditations/5min/mindfulness-5.mp3', duration:5 },
+    { name:'Good Morning — Energize with Positive Energy, Love & Light', file:'meditations/10min/good-morning-energize.mp3', duration:10 },
+    { name:'Health, Wealth & Happiness', file:'meditations/10min/health-wealth-happiness.mp3', duration:10 },
+    { name:'Chakra Activation & Alignment', file:'meditations/10min/chakra-activation.mp3', duration:10 },
+    { name:'The Perfect Mindfulness Meditation', file:'meditations/10min/perfect-mindfulness.mp3', duration:10 },
+    { name:'Morning Gratitude — Joy & Happiness', file:'meditations/10min/gratitude-joy.mp3', duration:10 },
+    { name:'6-Phase Morning Meditation', file:'meditations/10min/six-phase-morning.mp3', duration:10 },
+    { name:'A Powerful Morning Meditation', file:'meditations/10min/powerful-morning.mp3', duration:10 },
+    { name:'Meditation for Beginners', file:'meditations/10min/beginners.mp3', duration:10 },
+    { name:'Increase Your Vibrational Frequency', file:'meditations/10min/vibrational-frequency.mp3', duration:10 },
+    { name:'Feel in Balance — Chakra Meditation', file:'meditations/10min/chakra-balance.mp3', duration:10 }
+  ];
+
+  static POSE_LIBRARY = [
+    {name:'Table Top', group:'Warm-up', cue:'Engage your core', sideCapable:false},
+    {name:'Cat / Cow', group:'Warm-up', cue:'Inhale look up, exhale look down', sideCapable:false},
+    {name:'Downward Dog', group:'Warm-up', cue:'Shoulders away from ears, heels down', sideCapable:false},
+    {name:'Table Top — Hover Variation', group:'Warm-up', cue:'Hover knees just off the ground', sideCapable:false},
+    {name:'Single Leg Seated Fold', group:'Seated Stretches', cue:'Extend one leg long, tuck the other foot to your inner thigh, then hinge forward over the straight leg', sideCapable:true},
+    {name:'Seated Wide Forward Fold', group:'Seated Stretches', cue:'Fold forward through the hips', sideCapable:false},
+    {name:'Butterfly Pose', group:'Seated Stretches', cue:'Soles together, knees relax open', sideCapable:false},
+    {name:'Seated Figure 4', group:'Hip Openers', cue:'Stack ankle over opposite knee', sideCapable:true},
+    {name:'Half Lord of the Fishes', group:'Hip Openers', cue:'Sit tall, cross one foot over the opposite knee, twist toward the bent knee', sideCapable:true},
+    {name:'Pigeon Pose', group:'Hip Openers', cue:'Bring one knee forward and out, extend the other leg straight back, fold forward', sideCapable:true},
+    {name:'Seated Forward Fold', group:'Seated Stretches', cue:'Legs together straight out in front of you, hinge from the hips', sideCapable:false},
+    {name:'Bridge Pose', group:'Reclined Sequence', cue:'Lay down, press into your feet', sideCapable:false},
+    {name:'Single Leg Stretch', group:'Reclined Sequence', cue:'Hold your shin, extend the other leg', sideCapable:true},
+    {name:'Knee to Chest', group:'Reclined Sequence', cue:'Hug the knee in', sideCapable:true},
+    {name:'Twist', group:'Reclined Sequence', cue:'Let the knees drop to one side, gaze away', sideCapable:true},
+    {name:'Happy Baby', group:'Reclined Sequence', cue:'Grab the outer edges of your feet', sideCapable:false},
+    {name:'Hug Knees to Forehead', group:'Reclined Sequence', cue:'Round in, breathe into your back', sideCapable:false},
+    {name:'Savasana', group:'Final', cue:'Let everything go', sideCapable:false}
+  ];
+
+  static ROUTINE = [
+    {name:'Table Top',cue:'Engage your core',breaths:3,pose:'tabletop',photo:'screenshots/page-01.jpg'},
+    {name:'Cat / Cow',cue:'Inhale look up, exhale look down',reps:5,poseA:'cow',poseB:'cat',dynamic:true,seconds:30,photo:'screenshots/page-02.jpg'},
+    {name:'Downward Dog',cue:'Shoulders away from ears, heels down',breaths:5,pose:'downdog',photo:'screenshots/page-04.jpg'},
+    {name:'Table Top',variant:'Hover Variation',cue:'Hover knees just off the ground',breaths:3,pose:'tabletop_hover',photo:'screenshots/page-05.jpg'},
+    {name:'Single Leg Seated Fold',side:'L',cue:'Extend one leg long, tuck the other foot to your inner thigh, then hinge forward over the straight leg',breaths:3,pose:'seated_fold',enter:true,enterFrom:'seated_fold_neutral',frontView:true,photo:'screenshots/page-06.jpg'},
+    {name:'Single Leg Seated Fold',side:'R',cue:'Extend one leg long, tuck the other foot to your inner thigh, then hinge forward over the straight leg',breaths:3,pose:'seated_fold',enter:true,enterFrom:'seated_fold_neutral',frontView:true,photo:'screenshots/page-07.jpg'},
+    {name:'Seated Wide Forward Fold',cue:'Fold forward through the hips',breaths:3,pose:'wide_fold',enter:true,enterFrom:'seated_upright_wide',frontView:true,photo:'screenshots/page-10.jpg'},
+    {name:'Butterfly Pose',cue:'Soles together, knees relax open',breaths:3,pose:'butterfly',enter:true,enterFrom:'seated_upright_butterfly',frontView:true,photo:'screenshots/page-08.jpg'},
+    {name:'Seated Figure 4',group:'Hip Openers',side:'L',cue:'Stack ankle over opposite knee',breaths:3,pose:'figure4',enter:true,enterFrom:'seated_upright_figure4',frontView:true,loopEnter:2,photo:'screenshots/page-12.jpg'},
+    {name:'Seated Figure 4',group:'Hip Openers',side:'R',cue:'Stack ankle over opposite knee',breaths:3,pose:'figure4',enter:true,enterFrom:'seated_upright_figure4',frontView:true,loopEnter:2,photo:'screenshots/page-12.jpg'},
+    {name:'Half Lord of the Fishes',group:'Hip Openers',side:'L',cue:'Sit tall, cross one foot over the opposite knee, place your hand behind you, and twist your torso toward the bent knee',breaths:5,pose:'lordfish',enter:true,enterFrom:'seated_upright_lordfish',photo:'screenshots/page-13.jpg'},
+    {name:'Half Lord of the Fishes',group:'Hip Openers',side:'R',cue:'Sit tall, cross one foot over the opposite knee, place your hand behind you, and twist your torso toward the bent knee',breaths:5,pose:'lordfish',enter:true,enterFrom:'seated_upright_lordfish',photo:'screenshots/page-17.jpg'},
+    {name:'Pigeon Pose',group:'Hip Openers',side:'L',cue:'Bring one knee forward and out to the side, extend the other leg straight back, then fold your torso forward over the front shin',breaths:3,pose:'pigeon',enter:true,enterFrom:'pigeon_entry',frontView:true,photo:'screenshots/page-14.jpg'},
+    {name:'Pigeon Pose',group:'Hip Openers',side:'R',cue:'Bring one knee forward and out to the side, extend the other leg straight back, then fold your torso forward over the front shin',breaths:3,pose:'pigeon',enter:true,enterFrom:'pigeon_entry',frontView:true,photo:'screenshots/page-18.jpg'},
+    {name:'Seated Forward Fold',cue:'Legs together straight out in front of you, hinge from the hips, spine long',breaths:5,pose:'seated_forward_fold',enter:true,enterFrom:'seated_upright_forward',frontView:true,photo:'screenshots/page-21.jpg'},
+    {name:'Bridge Pose',cue:'Lay down, press into your feet',breaths:5,poseA:'bridge_down',poseB:'bridge_up',dynamic:true,photo:'screenshots/page-22.jpg'},
+    {name:'Single Leg Stretch',group:'Reclined Sequence',side:'L',cue:'Hold your shin, extend the other leg',breaths:5,pose:'single_leg_stretch',enter:true,enterFrom:'savasana',photo:'screenshots/page-25.jpg'},
+    {name:'Single Leg Stretch',group:'Reclined Sequence',side:'R',cue:'Hold your shin, extend the other leg',breaths:5,pose:'single_leg_stretch',enter:true,enterFrom:'savasana',photo:'screenshots/page-26.jpg'},
+    {name:'Knee to Chest',group:'Reclined Sequence',side:'L',cue:'Hug the knee in',breaths:3,pose:'knee_to_chest',enter:true,enterFrom:'savasana',photo:'screenshots/page-24.jpg'},
+    {name:'Knee to Chest',group:'Reclined Sequence',side:'R',cue:'Hug the knee in',breaths:3,pose:'knee_to_chest',enter:true,enterFrom:'savasana',photo:'screenshots/page-24.jpg'},
+    {name:'Twist',group:'Reclined Sequence',side:'L',cue:'Lying on your back, let both knees drop to one side and rest on the floor, arms open wide, gaze turned the opposite way',breaths:5,pose:'twist',enter:true,enterFrom:'reclined_knees_up',photo:'screenshots/page-29.jpg'},
+    {name:'Twist',group:'Reclined Sequence',side:'R',cue:'Lying on your back, let both knees drop to one side and rest on the floor, arms open wide, gaze turned the opposite way',breaths:5,pose:'twist',enter:true,enterFrom:'reclined_knees_up',photo:'screenshots/page-29.jpg'},
+    {name:'Happy Baby',cue:'Grab the outer edges of your feet',breaths:5,pose:'happy_baby',enter:true,enterFrom:'savasana',photo:'screenshots/page-35.jpg'},
+    {name:'Hug Knees to Forehead',cue:'Round in, breathe into your back',breaths:3,pose:'hug_knees',enter:true,enterFrom:'savasana',photo:'screenshots/page-36.jpg'},
+    {name:'Savasana 💙',cue:'Let everything go',breaths:8,pose:'savasana',isFinal:true,photo:'screenshots/page-37.jpg'}
+  ];
+
+  state = { screen:'intro', hasMounted:false, stepIndex:0, timeLeft:0, sessionStart:0, animT:0, autoMode:null, musicOn:false, toneIsPlaying:false, statsPeriod:'weekly', statsCategory:'all', photoView:false, loadingPhrase:'loading flexibility', meditationIndex:0, meditationDuration:5, meditationTimeLeft:300, meditationPlaying:false, lastCompletionType:'stretch', activeRoutine:null, byorSelected:[], weeklyGoal:4, stats:{streak:0,lastDate:null,totalSeconds:0,history:{}} };
+
+  getRoutine(){ return this.state.activeRoutine || Component.ROUTINE; }
+
+
+  static localDateKey(d){
+    const y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()).padStart(2,'0');
+    return `${y}-${m}-${day}`;
+  }
+  getTemplateGroups(){
+    const groups = {};
+    Component.ROUTINE.forEach(s => { (groups[s.name] = groups[s.name] || []).push(s); });
+    return groups;
+  }
+
+
+
+  resolvePhotoUrl(path){
+    const m = path && path.match(/page-(\d+)/);
+    const id = m ? 'photo' + m[1] : null;
+    return (id && window.__resources && window.__resources[id]) || path;
+  }
+  syncPhotoImg(){
+    const imgEl = document.querySelector('img[data-photo-slot]');
+    const step = this.getRoutine()[this.state.stepIndex];
+    if (imgEl && step && step.photo) imgEl.src = this.resolvePhotoUrl(step.photo);
+  }
+  componentDidUpdate(){ this.syncPhotoImg(); }
+  componentDidMount(){
+    this.setState({ hasMounted: true }, () => this.syncPhotoImg());
+    try {
+      const raw = localStorage.getItem('noviyogi-stats-v2');
+      let stats = raw ? JSON.parse(raw) : this.state.stats;
+      if (!stats.accountCreated || stats.accountCreated < '2026-07-20') {
+        stats = { ...stats, accountCreated: '2026-07-20' };
+        localStorage.setItem('noviyogi-stats-v2', JSON.stringify(stats));
+      }
+      this.setState({ stats });
+      const goalRaw = localStorage.getItem('noviyogi-weekly-goal');
+      if (goalRaw) this.setState({ weeklyGoal: parseInt(goalRaw, 10) || 4 });
+      const waterOn = localStorage.getItem('noviyogi-water-on') === 'true';
+      const waterTime = localStorage.getItem('noviyogi-water-time') || '14:00';
+      const waterMsg = localStorage.getItem('noviyogi-water-msg') || '💧 Time to hydrate!';
+      this.setState({ waterReminderOn: waterOn, waterReminderTime: waterTime, waterReminderMsg: waterMsg });
+      if (waterOn) setTimeout(() => this.scheduleWaterReminder(), 0);
+    } catch(e) {}
+    const q = Component.AFFIRMATIONS[Math.floor(Math.random() * Component.AFFIRMATIONS.length)];
+    this.setState({ homeQuote: q });
+    this._animInt = setInterval(() => { this.setState(s => ({ animT: s.animT + 0.05 })); }, 50);
+  }
+  componentWillUnmount(){
+    clearInterval(this._animInt);
+    clearInterval(this._timer);
+    clearInterval(this._medTimer);
+    clearTimeout(this._loadingTimer);
+    clearTimeout(this._toneStopTimer);
+  }
+
+  stepDuration(step){
+    const bs = this.props.breathSeconds ?? 5;
+    return step.seconds ?? (step.breaths * bs);
+  }
+
+  isAutoMode(){ return this.state.autoMode ?? (this.props.autoAdvance ?? true); }
+  setAutoMode = () => this.setState({ autoMode: true });
+  setManualMode = () => this.setState({ autoMode: false });
+  toggleMusic = () => this.setState(s => ({ musicOn: !s.musicOn }));
+  toggleNoviaMode = () => this.setState(s => ({ noviaMode: !s.noviaMode }));
+  toggleWaterReminder = () => this.setState(s => {
+    const on = !s.waterReminderOn;
+    try { localStorage.setItem('noviyogi-water-on', String(on)); } catch(e) {}
+    if (on) this.scheduleWaterReminder();
+    else clearTimeout(this._waterTimer);
+    return { waterReminderOn: on };
+  });
+  onReminderTimeChange = (e) => {
+    const v = e.target.value || '14:00';
+    try { localStorage.setItem('noviyogi-water-time', v); } catch(err) {}
+    this.setState({ waterReminderTime: v }, () => this.scheduleWaterReminder());
+  };
+  onReminderMsgChange = (e) => {
+    const v = e.target.value;
+    try { localStorage.setItem('noviyogi-water-msg', v); } catch(err) {}
+    this.setState({ waterReminderMsg: v });
+  };
+  sendTestReminder = () => {
+    const msg = this.state.waterReminderMsg || '💧 Time to hydrate!';
+    if (typeof Notification !== 'undefined') {
+      if (Notification.permission === 'granted') new Notification('Noviyogi', { body: msg });
+      else if (Notification.permission !== 'denied') Notification.requestPermission().then(p => { if (p === 'granted') new Notification('Noviyogi', { body: msg }); });
+    }
+  };
+  scheduleWaterReminder(){
+    clearTimeout(this._waterTimer);
+    if (!this.state.waterReminderOn) return;
+    const [h,m] = (this.state.waterReminderTime || '14:00').split(':').map(Number);
+    const now = new Date();
+    const next = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m, 0, 0);
+    if (next <= now) next.setDate(next.getDate() + 1);
+    this._waterTimer = setTimeout(() => {
+      this.sendTestReminder();
+      this.scheduleWaterReminder();
+    }, next - now);
+  }
+  formatTime(t){
+    const [h,m] = t.split(':').map(Number);
+    const period = h >= 12 ? 'PM' : 'AM';
+    const h12 = h % 12 === 0 ? 12 : h % 12;
+    return `${h12}:${String(m).padStart(2,'0')} ${period}`;
+  }
+  audioRef = (el) => { this._audioEl = el; };
+  playTone(){
+    if (!this.state.musicOn) return;
+    this._playChime();
+  }
+  previewTone = () => {
+    if (this.state.toneIsPlaying) { this._stopChime(); return; }
+    this._playChime();
+  };
+  _playChime(){
+    const el = this._audioEl;
+    if (!el) return;
+    el.currentTime = 0;
+    el.play().catch(()=>{});
+    this.setState({ toneIsPlaying: true });
+    el.onended = () => this._stopChime();
+  }
+  _stopChime(){
+    const el = this._audioEl;
+    if (el) { el.onended = null; el.pause(); el.currentTime = 0; }
+    this.setState({ toneIsPlaying: false });
+  }
+
+  beginStep(i){
+    clearInterval(this._timer);
+    const step = this.getRoutine()[i];
+    this.setState({ stepIndex: i, timeLeft: this.stepDuration(step), stepStartAnim: this.state.animT, photoView: !!this.state.noviaMode });
+    this._timer = setInterval(() => {
+      this.setState(s => {
+        if (s.timeLeft <= 1) {
+          if (this.isAutoMode()) { this.playTone(); setTimeout(() => this.nextStep(), 0); }
+          return { timeLeft: 0 };
+        }
+        return { timeLeft: s.timeLeft - 1 };
+      });
+    }, 1000);
+  }
+
+  startSession = () => {
+    this.setState({ screen: 'session', sessionStart: Date.now(), activeRoutine: Component.ROUTINE, photoView: !!this.state.noviaMode });
+    this.beginStep(0);
+  };
+
+  startByorRoutine = () => {
+    this.setState({ photoView: !!this.state.noviaMode });
+    const groups = this.getTemplateGroups();
+    const routine = this.state.byorSelected.reduce((acc, name) => acc.concat(groups[name] || []), []);
+    if (!routine.length) return;
+    this.setState({ screen: 'session', sessionStart: Date.now(), activeRoutine: routine });
+    this.beginStep(0);
+  };
+
+  toggleByorPose = (name) => {
+    this.setState(s => {
+      const has = s.byorSelected.includes(name);
+      return { byorSelected: has ? s.byorSelected.filter(n => n !== name) : [...s.byorSelected, name] };
+    });
+  };
+
+  nextStep = () => {
+    clearInterval(this._timer);
+    this.playTone();
+    const i = this.state.stepIndex;
+    if (i + 1 < this.getRoutine().length) this.beginStep(i + 1);
+    else this.finishSession();
+  };
+
+  prevStep = () => {
+    if (this.state.stepIndex <= 0) return;
+    clearInterval(this._timer);
+    this.beginStep(this.state.stepIndex - 1);
+  };
+
+  finishSession(){
+    const secs = Math.max(1, Math.round((Date.now() - this.state.sessionStart) / 1000));
+    const stats = this.updateStats(secs, 'stretch', this.getRoutine());
+    this.setState({ screen: 'complete', stats, lastSessionSeconds: secs, lastCompletionType: 'stretch' });
+  }
+
+  goHome = () => { clearInterval(this._timer); this.setState({ screen: 'home' }); };
+  togglePhotoView = () => this.setState(s => ({ photoView: !s.photoView }));
+  goLibrary = () => this.setState({ screen: 'library' });
+  goProfile = () => this.setState({ screen: 'profile' });
+  goMeditateDuration = () => this.setState({ screen: 'meditateDuration' });
+  goMeditateList5 = () => this.setState({ screen: 'meditateList', meditationDuration: 5 });
+  goMeditateList10 = () => this.setState({ screen: 'meditateList', meditationDuration: 10 });
+  goStretchChoose = () => this.setState({ screen: 'stretchChoose' });
+  goByor = () => this.setState({ screen: 'byor' });
+  meditationAudioRef = (el) => { this._medAudioEl = el; };
+
+  startMeditation(i){
+    const m = Component.MEDITATIONS[i];
+    if (!m) return;
+    clearInterval(this._medTimer);
+    this.setState({ screen: 'meditateSession', meditationIndex: i, meditationTimeLeft: m.duration * 60, meditationTotal: m.duration * 60, meditationPlaying: true, meditationStart: Date.now() });
+    const el = this._medAudioEl;
+    if (el) { el.src = m.file; el.currentTime = 0; el.play().catch(()=>{}); }
+    this._medTimer = setInterval(() => {
+      this.setState(s => {
+        if (!s.meditationPlaying) return null;
+        if (s.meditationTimeLeft <= 1) {
+          clearInterval(this._medTimer);
+          setTimeout(() => this.finishMeditation(), 0);
+          return { meditationTimeLeft: 0 };
+        }
+        return { meditationTimeLeft: s.meditationTimeLeft - 1 };
+      });
+    }, 1000);
+  }
+
+  getMeditationSiblings(){
+    const dur = (Component.MEDITATIONS[this.state.meditationIndex] || {}).duration;
+    return Component.MEDITATIONS.map((m,i)=>({...m,i})).filter(m => m.duration === dur);
+  }
+  prevMeditation = () => {
+    const list = this.getMeditationSiblings();
+    const pos = list.findIndex(m => m.i === this.state.meditationIndex);
+    if (pos < 0) return;
+    const next = list[(pos - 1 + list.length) % list.length];
+    this.startMeditation(next.i);
+  };
+  nextMeditation = () => {
+    const list = this.getMeditationSiblings();
+    const pos = list.findIndex(m => m.i === this.state.meditationIndex);
+    if (pos < 0) return;
+    const next = list[(pos + 1) % list.length];
+    this.startMeditation(next.i);
+  };
+  toggleMeditationLoop = () => this.setState(s => ({ meditationLoop: !s.meditationLoop }));
+  seekMeditation = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    const total = this.state.meditationTotal || 1;
+    this.setState({ meditationTimeLeft: Math.max(1, Math.round(total * (1 - ratio))) });
+  };
+
+  toggleMeditationPause = () => {
+    const el = this._medAudioEl;
+    this.setState(s => {
+      const playing = !s.meditationPlaying;
+      if (el) { playing ? el.play().catch(()=>{}) : el.pause(); }
+      return { meditationPlaying: playing };
+    });
+  };
+
+  exitMeditation = () => {
+    clearInterval(this._medTimer);
+    const el = this._medAudioEl;
+    if (el) { el.pause(); el.currentTime = 0; }
+    this.setState({ screen: 'home' });
+  };
+
+  finishMeditation(){
+    clearInterval(this._medTimer);
+    if (this.state.meditationLoop) {
+      this.startMeditation(this.state.meditationIndex);
+      return;
+    }
+    const el = this._medAudioEl;
+    if (el) { el.pause(); el.currentTime = 0; }
+    this.playTone();
+    const secs = Math.max(1, Math.round((Date.now() - (this.state.meditationStart||Date.now())) / 1000));
+    const stats = this.updateStats(secs, 'meditate');
+    this.setState({ screen: 'complete', stats, lastSessionSeconds: secs, lastCompletionType: 'meditate' });
+  }
+  setStatsDaily = () => this.setState({ statsPeriod: 'daily' });
+  setStatsWeekly = () => this.setState({ statsPeriod: 'weekly' });
+  setStatsMonthly = () => this.setState({ statsPeriod: 'monthly' });
+  setStatsCatAll = () => this.setState({ statsCategory: 'all' });
+  setStatsCatMeditate = () => this.setState({ statsCategory: 'meditate' });
+  setStatsCatStretch = () => this.setState({ statsCategory: 'stretch' });
+
+  static LOADING_PHRASES = [
+    'loading flexibility', 'loading relaxation', 'loading deep breaths', 'loading wellness',
+    'loading serenity', 'loading good vibes', 'loading zen', 'loading calm', 'loading balance',
+    'loading mindfulness', 'loading inner peace', 'loading good posture', 'loading stretchiness',
+    'loading tranquility', 'loading gentle stretches', 'loading positive energy', 'loading centeredness',
+    'loading softer joints', 'loading better mornings', 'loading happy hips', 'loading slow breathing',
+    'loading quiet mind'
+  ];
+
+  static AFFIRMATIONS = [
+    { text: 'The mind is everything. What you think you become.', by: 'Buddha' },
+    { text: 'Peace comes from within. Do not seek it without.', by: 'Buddha' },
+    { text: 'A disciplined mind brings happiness.', by: 'Buddha' },
+    { text: 'Every morning we are born again. What we do today matters most.', by: 'Buddha' },
+    { text: 'Fill your mind with compassion.', by: 'Buddha' },
+    { text: 'The present moment is filled with joy and happiness. If you are attentive, you will see it.', by: 'Thich Nhat Hanh' },
+    { text: 'Breathing in, I calm body and mind. Breathing out, I smile.', by: 'Thich Nhat Hanh' },
+    { text: 'Smile, breathe and go slowly.', by: 'Thich Nhat Hanh' },
+    { text: 'Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor.', by: 'Thich Nhat Hanh' },
+    { text: 'Walk as if you are kissing the earth with your feet.', by: 'Thich Nhat Hanh' },
+    { text: 'To meditate means to go home to yourself.', by: 'Thich Nhat Hanh' },
+    { text: 'The miracle is to walk on the green earth, dwelling deeply in the present moment.', by: 'Thich Nhat Hanh' },
+    { text: 'Because you are alive, everything is possible.', by: 'Thich Nhat Hanh' },
+    { text: 'We can never obtain peace in the outer world until we make peace with ourselves.', by: 'Dalai Lama' },
+    { text: 'If there is a solution to a problem, there is no need to worry. If there is not, worry will not help.', by: 'Dalai Lama' },
+    { text: 'Peace of mind is rooted in affection and compassion.', by: 'Dalai Lama' },
+    { text: 'The true antidote of greed is contentment.', by: 'Dalai Lama' },
+    { text: 'If you want others to be happy, practice compassion.', by: 'Dalai Lama' },
+    { text: 'When we don\u2019t struggle against it, we are in harmony with reality.', by: 'Pema Ch\u00f6dr\u00f6n' },
+    { text: 'Nothing ever goes away until it teaches us what we need to know.', by: 'Pema Ch\u00f6dr\u00f6n' },
+    { text: 'You are the sky. Everything else is just the weather.', by: 'Pema Ch\u00f6dr\u00f6n' },
+    { text: 'Mindfulness means being awake. It means knowing what you are doing.', by: 'Jon Kabat-Zinn' },
+    { text: 'You can\u2019t stop the waves, but you can learn to surf.', by: 'Jon Kabat-Zinn' },
+    { text: 'The best way to capture moments is to pay attention.', by: 'Jon Kabat-Zinn' },
+    { text: 'Wherever you are, be there totally.', by: 'Eckhart Tolle' },
+    { text: 'Realize deeply that the present moment is all you ever have.', by: 'Eckhart Tolle' },
+    { text: 'Knowledge is learning something new every day. Wisdom is letting go of something every day.', by: 'Zen proverb' },
+    { text: 'Slow down and everything you are chasing will come around and catch you.', by: 'Zen proverb' },
+    { text: 'Your body remembers ease. Let it.', by: 'Noviyogi' },
+    { text: 'Small movements, real progress.', by: 'Noviyogi' },
+    { text: 'A few quiet minutes count.', by: 'Noviyogi' },
+    { text: 'Consistency beats intensity.', by: 'Noviyogi' },
+    { text: 'You showed up. That is the practice.', by: 'Noviyogi' }
+  ];
+
+  incGoal = () => this.setState(s => {
+    const goal = Math.min(7, (s.weeklyGoal || 4) + 1);
+    try { localStorage.setItem('noviyogi-weekly-goal', String(goal)); } catch(e) {}
+    return { weeklyGoal: goal };
+  });
+  decGoal = () => this.setState(s => {
+    const goal = Math.max(2, (s.weeklyGoal || 4) - 1);
+    try { localStorage.setItem('noviyogi-weekly-goal', String(goal)); } catch(e) {}
+    return { weeklyGoal: goal };
+  });
+
+  proceedFromIntro = () => {
+    const phrase = Component.LOADING_PHRASES[Math.floor(Math.random() * Component.LOADING_PHRASES.length)];
+    this.setState({ screen: 'loading', loadingPhrase: phrase });
+    clearTimeout(this._loadingTimer);
+    this._loadingTimer = setTimeout(() => this.setState({ screen: 'home' }), 5000);
+  };
+
+  updateStats(sessionSeconds, type, routine){
+    const stats = { ...this.state.stats, history: { ...(this.state.stats.history||{}) } };
+    const todayKey = Component.localDateKey(new Date());
+    if (stats.lastDate === todayKey) { /* keep streak, same day */ }
+    else if (stats.lastDate) {
+      const diffDays = Math.round((new Date(todayKey) - new Date(stats.lastDate)) / 86400000);
+      stats.streak = diffDays === 1 ? (stats.streak || 0) + 1 : 1;
+    } else { stats.streak = 1; }
+    stats.lastDate = todayKey;
+    stats.totalSeconds = (stats.totalSeconds || 0) + sessionSeconds;
+    stats.totalSessions = (stats.totalSessions || 0) + 1;
+    stats.longestStreak = Math.max(stats.longestStreak || 0, stats.streak || 0);
+    if (type === 'meditate') {
+      stats.meditationSessions = (stats.meditationSessions || 0) + 1;
+      stats.meditationSeconds = (stats.meditationSeconds || 0) + sessionSeconds;
+      stats.historyMeditate = { ...(stats.historyMeditate || {}) };
+      stats.historyMeditate[todayKey] = (stats.historyMeditate[todayKey] || 0) + sessionSeconds;
+    } else {
+      const r = routine || Component.ROUTINE;
+      stats.stretchSessions = (stats.stretchSessions || 0) + 1;
+      stats.stretchSeconds = (stats.stretchSeconds || 0) + sessionSeconds;
+      stats.totalBreaths = (stats.totalBreaths || 0) + r.reduce((sum, s) => sum + (s.breaths || 0), 0);
+      stats.groupCounts = { ...(stats.groupCounts || {}) };
+      r.forEach(s => { const g = s.group || 'Warm-up & Core'; stats.groupCounts[g] = (stats.groupCounts[g] || 0) + 1; });
+      stats.historyStretch = { ...(stats.historyStretch || {}) };
+      stats.historyStretch[todayKey] = (stats.historyStretch[todayKey] || 0) + sessionSeconds;
+    }
+    stats.historyCount = { ...(stats.historyCount || {}) };
+    stats.historyCount[todayKey] = (stats.historyCount[todayKey] || 0) + 1;
+    stats.history[todayKey] = (stats.history[todayKey] || 0) + sessionSeconds;
+    try { localStorage.setItem('noviyogi-stats-v2', JSON.stringify(stats)); } catch(e) {}
+    return stats;
+  }
+
+  fmtMinutes(totalSeconds){
+    if (totalSeconds < 60) return `${totalSeconds}s`;
+    if (totalSeconds < 3600) return `${Math.round(totalSeconds/60)}m`;
+    return `${(totalSeconds/3600).toFixed(1)}h`;
+  }
+  fmtClock(sec){
+    const m = Math.floor(sec/60), s = Math.floor(sec%60);
+    return `${m}:${s<10?'0':''}${s}`;
+  }
+
+  renderVals(){
+    const R = this.getRoutine();
+    const step = R[this.state.stepIndex] || R[0];
+    const accent = this.props.accentColor ?? '#3E7CA6';
+    const override = this.props.previewScreen;
+    const screen = (override && override !== 'Normal app flow') ? override.toLowerCase() : this.state.screen;
+
+    const isFrontView = !!step.frontView;
+    const elapsed = this.state.animT - (this.state.stepStartAnim||0);
+    const cycleDur = 1.3;
+    let enterT;
+    if (step.loopEnter) {
+      const period = cycleDur * 2;
+      const totalLoopTime = step.loopEnter * period;
+      if (elapsed < totalLoopTime) {
+        const phase = (elapsed % period) / period;
+        const tri = phase < 0.5 ? phase * 2 : (1 - phase) * 2;
+        enterT = tri * (2 - tri);
+      } else {
+        enterT = 1;
+      }
+    } else {
+      const enterProgress = Math.min(1, Math.max(0, elapsed / cycleDur));
+      enterT = enterProgress * (2 - enterProgress);
+    }
+
+    let fig;
+    if (!isFrontView) {
+      let figA, figB, t;
+      if (step.dynamic) {
+        figA = Component.arrToFig(Component.POSES[step.poseA]);
+        figB = Component.arrToFig(Component.POSES[step.poseB]);
+        t = (Math.sin(this.state.animT * 1.1) + 1) / 2;
+      } else if (step.enter) {
+        figA = Component.arrToFig(Component.POSES[step.enterFrom]);
+        figB = Component.arrToFig(Component.POSES[step.pose]);
+        t = enterT;
+      } else {
+        figA = figB = Component.arrToFig(Component.POSES[step.pose]);
+        t = 0;
+      }
+      fig = Component.lerpFig(figA, figB, t);
+      const sdx=fig.shoulderX-fig.hipX, sdy=fig.shoulderY-fig.hipY, slen=Math.hypot(sdx,sdy)||1;
+      const spx=-sdy/slen, spy=sdx/slen, bow=(fig.spineBow||0)*20;
+      const scx=(fig.hipX+fig.shoulderX)/2+spx*bow, scy=(fig.hipY+fig.shoulderY)/2+spy*bow;
+      fig.spinePath = `M ${fig.hipX} ${fig.hipY} Q ${scx} ${scy} ${fig.shoulderX} ${fig.shoulderY}`;
+      const dir = sdx>=0?1:-1;
+      fig.hairX = fig.headX - dir*4; fig.hairY = fig.headY - 7;
+      fig.footTip = Component.perpBar(fig.kneeX,fig.kneeY,fig.footX,fig.footY,11);
+      fig.handTip = Component.perpBar(fig.elbowX,fig.elbowY,fig.handX,fig.handY,7);
+    } else {
+      fig = { spinePath:'', footTip:{x1:0,y1:0,x2:0,y2:0}, handTip:{x1:0,y1:0,x2:0,y2:0}, hipX:0,hipY:0,kneeX:0,kneeY:0,footX:0,footY:0,shoulderX:0,shoulderY:0,elbowX:0,elbowY:0,handX:0,handY:0,headX:0,headY:0,backKneeX:0,backKneeY:0,backFootX:0,backFootY:0 };
+    }
+
+    const frontMirror = step.side === 'L' ? 'scaleX(-1)' : 'none';
+    const sideMirror = step.side === 'R' ? 'scaleX(-1)' : 'none';
+    let frontPose = null;
+    if (isFrontView) {
+      const targetFP = Component.FRONT_POSES[step.pose];
+      frontPose = step.enter ? Component.lerpFrontPose(Component.FRONT_POSES[step.enterFrom], targetFP, enterT) : targetFP;
+      frontPose.footExtBar = Component.perpBar(frontPose.kneeExt[0],frontPose.kneeExt[1],frontPose.footExt[0],frontPose.footExt[1],11);
+      frontPose.footBentBar = Component.perpBar(frontPose.kneeBent[0],frontPose.kneeBent[1],frontPose.footBent[0],frontPose.footBent[1],11);
+    }
+
+    const stepOut = {
+      name: step.name,
+      cue: step.cue,
+      side: step.side || null,
+      sideLabel: step.side === 'L' ? 'Left side' : step.side === 'R' ? 'Right side' : '',
+      variantSuffix: step.variant ? ' — ' + step.variant : '',
+      repLabel: step.reps ? `Repeat ${step.reps}x` : `${step.breaths} breath${step.breaths>1?'s':''}`,
+      photo: this.resolvePhotoUrl(step.photo) || null,
+      hasPhoto: !!step.photo,
+      showPhoto: !!(this.state.hasMounted && step.photo),
+      noPhoto: !step.photo
+    };
+
+    const bs = this.props.breathSeconds ?? 5;
+    const totalSecondsAll = R.reduce((sum, s) => sum + (s.seconds ?? s.breaths*bs), 0);
+    const dayOfWeek = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+    const autoOn = this.isAutoMode();
+
+    const isSavasanaBelly = !isFrontView && step.pose === 'savasana';
+    let savasanaBelly = { x:0, y:0, rx:0, ry:0 };
+    let circleBg = '#EFDCC2';
+    if (isSavasanaBelly) {
+      const breathCycleSec = bs;
+      const bellyPulse = (Math.sin(this.state.animT * (2*Math.PI/breathCycleSec)) + 1) / 2;
+      const sdx=fig.shoulderX-fig.hipX;
+      const baselineY = Math.max(fig.hipY, fig.shoulderY);
+      const bellyRx = 12 + bellyPulse*5;
+      const bellyRy = 8 + bellyPulse*7;
+      savasanaBelly = {
+        x: fig.hipX + sdx*0.3, y: baselineY - bellyRy,
+        rx: bellyRx, ry: bellyRy
+      };
+      const hue = Math.floor(bellyPulse*70);
+      circleBg = `radial-gradient(circle at 50% 60%, hsl(${hue},70%,55%) 0%, hsl(${(hue+90)%360},60%,40%) 55%, hsl(${(hue+180)%360},55%,25%) 100%)`;
+    }
+
+    const stats = this.state.stats;
+    const history = stats.history || {};
+    const goal = this.state.weeklyGoal || 4;
+    const historyCount = stats.historyCount || {};
+    const weekCount = Object.entries(historyCount).filter(([k])=>{
+      const d = (Date.now() - new Date(k+'T00:00:00').getTime())/86400000; return d >= 0 && d < 7;
+    }).reduce((sum,[,c])=>sum+(c||0),0);
+    const lotusPetals = Array.from({length: 8}, (_,i) => {
+      const filledCount = Math.round(Math.min(weekCount/goal, 1) * 8);
+      const filled = i < filledCount;
+      const hue = Math.round((360/8)*i);
+      return { angle: Math.round((360/8)*i), fill: filled ? `hsl(${hue},68%,58%)` : 'transparent', stroke: filled ? `hsl(${hue},68%,42%)` : '#3a4750' };
+    });
+    const elephantSteps = Array.from({length: goal}, (_,i) => {
+      const filled = i < Math.min(weekCount, goal);
+      const hue = Math.round((300/Math.max(goal-1,1))*i);
+      return { filter: filled ? `hue-rotate(${hue}deg) saturate(2.4) brightness(1.05)` : 'grayscale(1) opacity(0.35)' };
+    });
+
+    const period = this.state.statsPeriod || 'weekly';
+    const periodDays = period === 'daily' ? 1 : period === 'monthly' ? 30 : 7;
+    const category = this.state.statsCategory || 'all';
+    const categoryHistory = category === 'stretch' ? (stats.historyStretch || {}) : category === 'meditate' ? (stats.historyMeditate || {}) : history;
+    let periodSeconds = 0;
+    for (let i = 0; i < periodDays; i++) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      periodSeconds += categoryHistory[Component.localDateKey(d)] || 0;
+    }
+    const groupCounts = stats.groupCounts || {};
+    let mostPracticedLabel = '—';
+    let bestCount = 0;
+    for (const g in groupCounts) { if (groupCounts[g] > bestCount) { bestCount = groupCounts[g]; mostPracticedLabel = g; } }
+
+    const catSeconds = category === 'stretch' ? (stats.stretchSeconds || 0) : category === 'meditate' ? (stats.meditationSeconds || 0) : (stats.totalSeconds || 0);
+    const catSessions = category === 'stretch' ? (stats.stretchSessions || 0) : category === 'meditate' ? (stats.meditationSessions || 0) : (stats.totalSessions || 0);
+    const catAvgLabel = catSessions ? this.fmtMinutes(Math.round(catSeconds / catSessions)) : '—';
+    const catExtraLabel = category === 'stretch' ? mostPracticedLabel : (stats.longestStreak || stats.streak || 0);
+    const catExtraCaption = category === 'stretch' ? 'most practiced' : 'longest streak';
+
+    const cells = [];
+    for (let i = 34; i >= 0; i--) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      const key = Component.localDateKey(d);
+      const secs = history[key] || 0;
+      let bg = '#232E35';
+      if (secs > 0) bg = secs < 300 ? '#31474F' : secs < 900 ? '#2C5A6B' : secs < 1800 ? '#2A7089' : accent;
+      cells.push({ bg });
+    }
+
+    return {
+      isIntro: screen === 'intro',
+      isLoading: screen === 'loading',
+      isHome: screen === 'home',
+      isSession: screen === 'session' && !this.state.photoView,
+      showPhotoOverlay: screen === 'session' && !!this.state.photoView,
+      photoTitleMarginTop: '18px',
+      photoToggleLabel: this.state.photoView ? '✕' : '📷',
+      photoToggleContent: this.state.photoView ? '✕' : React.createElement('img', { src:'assets/meditator-head-icon-v4.png', style:{ width:'36px', height:'36px', objectFit:'cover', borderRadius:'12px' } }),
+      togglePhotoView: this.togglePhotoView,
+      isComplete: screen === 'complete',
+      isLibrary: screen === 'library',
+      isProfile: screen === 'profile',
+      isMeditateDuration: screen === 'meditateDuration',
+      isMeditateList: screen === 'meditateList',
+      isMeditateSession: screen === 'meditateSession',
+      isStretchChoose: screen === 'stretchChoose',
+      isByor: screen === 'byor',
+      libraryPoses: Component.POSE_LIBRARY.map(p => ({ name: p.name, group: p.group, initial: p.name[0], sideCapable: p.sideCapable })),
+      goLibrary: this.goLibrary,
+      goProfile: this.goProfile,
+      goMeditateDuration: this.goMeditateDuration,
+      goMeditateList5: this.goMeditateList5,
+      goMeditateList10: this.goMeditateList10,
+      goStretchChoose: this.goStretchChoose,
+      goByor: this.goByor,
+      startByorRoutine: this.startByorRoutine,
+      meditationAudioRef: this.meditationAudioRef,
+      exitMeditation: this.exitMeditation,
+      toggleMeditationPause: this.toggleMeditationPause,
+      cardBg2: '#243138',
+      count5Label: `${Component.MEDITATIONS.filter(m => m.duration === 5).length} sessions`,
+      count10Label: `${Component.MEDITATIONS.filter(m => m.duration === 10).length} sessions`,
+      hasMeditations: Component.MEDITATIONS.some(m => m.duration === this.state.meditationDuration),
+      noMeditations: !Component.MEDITATIONS.some(m => m.duration === this.state.meditationDuration),
+      meditations: Component.MEDITATIONS
+        .map((m, i) => ({ ...m, i }))
+        .filter(m => m.duration === this.state.meditationDuration)
+        .map(m => ({ name: m.name, select: () => this.startMeditation(m.i) })),
+      currentMeditationName: (Component.MEDITATIONS[this.state.meditationIndex] || {}).name || '',
+      meditationTimeLabel: this.fmtClock(this.state.meditationTimeLeft || 0),
+      meditationElapsedLabel: this.fmtClock(Math.max(0, (this.state.meditationTotal||0) - (this.state.meditationTimeLeft||0))),
+      medProgressPct: `${Math.min(100, Math.max(0, ((this.state.meditationTotal||0) - (this.state.meditationTimeLeft||0)) / (this.state.meditationTotal||1) * 100))}%`,
+      medPlayPauseLabel: this.state.meditationPlaying ? 'Pause' : 'Resume',
+      medPlayIcon: this.state.meditationPlaying ? '❚❚' : '▶',
+      prevMeditation: this.prevMeditation,
+      nextMeditation: this.nextMeditation,
+      seekMeditation: this.seekMeditation,
+      toggleMeditationLoop: this.toggleMeditationLoop,
+      loopColor: this.state.meditationLoop ? accent : '#8FA0A8',
+      byorPoses: Component.POSE_LIBRARY.map(p => {
+        const sel = this.state.byorSelected.includes(p.name);
+        return {
+          name: p.name, group: p.group, sideCapable: p.sideCapable,
+          toggle: () => this.toggleByorPose(p.name),
+          bg: sel ? accent : '#1C262C',
+          border: sel ? accent : '#2C383F',
+          checkBg: sel ? '#fff' : '#3a4750',
+          checkLabel: sel ? '✓' : '',
+        };
+      }),
+      byorEmpty: this.state.byorSelected.length === 0,
+      byorButtonOpacity: this.state.byorSelected.length === 0 ? 0.4 : 1,
+      byorButtonLabel: this.state.byorSelected.length ? `Start My Routine (${this.state.byorSelected.length})` : 'Select poses to begin',
+      completionTitle: this.state.lastCompletionType === 'meditate' ? 'Meditation complete' : 'Session complete',
+      completionSubtitle: this.state.lastCompletionType === 'meditate' ? `You meditated for ${this.fmtClock(this.state.lastSessionSeconds || 0)}` : `You stretched for ${this.fmtClock(this.state.lastSessionSeconds || 0)}`,
+      ink: '#EDF1F3',
+      muted: '#8FA0A8',
+      cardBg: '#1C262C',
+      dividerColor: '#2C383F',
+      accent,
+      circleBg,
+      isSavasanaBelly,
+      savasanaBelly,
+      showKneeDot: !isSavasanaBelly,
+      matColor: '#9E6B7A',
+      topColor: accent,
+      legColor: '#8A6C4A',
+      skinColor: '#E3B686',
+      hairColor: '#3B2A22',
+      fig,
+      isFrontView,
+      frontPose,
+      frontMirror,
+      sideViewDisplay: isFrontView ? 'none' : 'block',
+      sideMirror,
+      step: stepOut,
+      breatheAnim: 'none',
+      stepNumberLabel: `${this.state.stepIndex+1} of ${R.length}`,
+      progressPctLabel: `${Math.round(((this.state.stepIndex+1)/R.length)*100)}%`,
+      timeLeftLabel: this.fmtClock(this.state.timeLeft || 0),
+      repTimeLabel: autoOn ? `${stepOut.repLabel} · ${this.fmtClock(this.state.timeLeft || 0)}` : stepOut.repLabel,
+      nextButtonLabel: this.state.stepIndex + 1 >= R.length ? 'Finish' : 'Next',
+      homeStreak: stats.streak || 0,
+      homeWeekMinutes: Math.round((stats.history ? Object.entries(stats.history).filter(([k])=>{
+        const d = (Date.now() - new Date(k).getTime())/86400000; return d >= 0 && d < 7;
+      }).reduce((sum,[,secs])=>sum+(secs||0),0) : 0) / 60),
+      homeAffirmation: (this.state.homeQuote || Component.AFFIRMATIONS[0]).text,
+      homeAffirmationBy: (this.state.homeQuote || Component.AFFIRMATIONS[0]).by,
+      weeklyGoal: this.state.weeklyGoal || 4,
+      incGoal: this.incGoal,
+      decGoal: this.decGoal,
+      lotusPetals,
+      elephantSteps,
+      elephantClipRight: `${100 - Math.round(Math.min(weekCount/goal, 1) * 100)}%`,
+      elephantFillWidth: Math.round(Math.min(weekCount/goal, 1) * 540),
+      lotusCenterFill: weekCount > 0 ? accent : 'transparent',
+      lotusCenterStroke: weekCount > 0 ? accent : '#3a4750',
+      weekProgressLabel: `${Math.min(weekCount, goal)} of ${goal} sessions this week`,
+      stats: {
+        streak: stats.streak || 0,
+        totalLabel: this.fmtMinutes(stats.totalSeconds || 0),
+        totalMinutesLabel: Math.round((stats.totalSeconds || 0) / 60),
+        totalSessions: stats.totalSessions || 0,
+        totalBreaths: stats.totalBreaths || 0,
+        accountCreatedLabel: stats.accountCreated ? new Date(stats.accountCreated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—',
+        longestStreak: stats.longestStreak || stats.streak || 0,
+        avgSessionLabel: stats.totalSessions ? this.fmtMinutes(Math.round((stats.totalSeconds || 0) / stats.totalSessions)) : '—',
+        mostPracticedLabel,
+        stretchSessions: stats.stretchSessions || 0,
+        meditationSessions: stats.meditationSessions || 0,
+        meditationMinutesLabel: this.fmtMinutes(stats.meditationSeconds || 0)
+      },
+      statsPeriod: period,
+      periodLabel: period === 'daily' ? 'Today' : period === 'monthly' ? 'Last 30 days' : 'Last 7 days',
+      periodMinutesLabel: this.fmtMinutes(periodSeconds),
+      setStatsDaily: this.setStatsDaily,
+      setStatsWeekly: this.setStatsWeekly,
+      setStatsMonthly: this.setStatsMonthly,
+      dailyBg: period === 'daily' ? accent : 'transparent',
+      dailyFg: period === 'daily' ? '#fff' : '#8FA0A8',
+      weeklyBg: period === 'weekly' ? accent : 'transparent',
+      weeklyFg: period === 'weekly' ? '#fff' : '#8FA0A8',
+      monthlyBg: period === 'monthly' ? accent : 'transparent',
+      monthlyFg: period === 'monthly' ? '#fff' : '#8FA0A8',
+      setStatsCatAll: this.setStatsCatAll,
+      setStatsCatMeditate: this.setStatsCatMeditate,
+      setStatsCatStretch: this.setStatsCatStretch,
+      catAllBg: category === 'all' ? accent : 'transparent',
+      catAllFg: category === 'all' ? '#fff' : '#8FA0A8',
+      catMeditateBg: category === 'meditate' ? accent : 'transparent',
+      catMeditateFg: category === 'meditate' ? '#fff' : '#8FA0A8',
+      catStretchBg: category === 'stretch' ? accent : 'transparent',
+      catStretchFg: category === 'stretch' ? '#fff' : '#8FA0A8',
+      catSessions,
+      catAvgLabel,
+      catExtraLabel,
+      catExtraCaption,
+      routineCountLabel: `${R.length} poses · ~${Math.round(totalSecondsAll/60)} min`,
+      lastSessionLabel: this.fmtClock(this.state.lastSessionSeconds || 0),
+      cells,
+      isFirstStep: this.state.stepIndex === 0,
+      prevOpacity: this.state.stepIndex === 0 ? 0.4 : 1,
+      startSession: this.startSession,
+      nextStep: this.nextStep,
+      prevStep: this.prevStep,
+      goHome: this.goHome,
+      proceedFromIntro: this.proceedFromIntro,
+      greetingLabel: `Happy ${dayOfWeek}, Todd`,
+      loadingPhrase: this.state.loadingPhrase,
+      setAutoMode: this.setAutoMode,
+      setManualMode: this.setManualMode,
+      autoBg: autoOn ? accent : 'transparent',
+      autoFg: autoOn ? '#fff' : '#8FA0A8',
+      manualBg: !autoOn ? accent : 'transparent',
+      manualFg: !autoOn ? '#fff' : '#8FA0A8',
+      breathModeOn: autoOn,
+      toggleMusic: this.toggleMusic,
+      previewTone: this.previewTone,
+      toneIcon: this.state.toneIsPlaying ? '❚❚' : '▶',
+      audioRef: this.audioRef,
+      musicTrackBg: this.state.musicOn ? accent : '#3a4750',
+      musicKnobLeft: this.state.musicOn ? '18px' : '2px',
+      toggleNoviaMode: this.toggleNoviaMode,
+      noviaTrackBg: this.state.noviaMode ? accent : '#3a4750',
+      noviaKnobLeft: this.state.noviaMode ? '18px' : '2px',
+      waterReminderOn: !!this.state.waterReminderOn,
+      toggleWaterReminder: this.toggleWaterReminder,
+      waterTrackBg: this.state.waterReminderOn ? accent : '#3a4750',
+      waterKnobLeft: this.state.waterReminderOn ? '18px' : '2px',
+      waterReminderTime: this.state.waterReminderTime || '14:00',
+      waterReminderMsg: this.state.waterReminderMsg || '💧 Time to hydrate!',
+      onReminderTimeChange: this.onReminderTimeChange,
+      onReminderMsgChange: this.onReminderMsgChange,
+      sendTestReminder: this.sendTestReminder,
+      waterReminderSummary: this.state.waterReminderOn
+        ? `${this.formatTime(this.state.waterReminderTime || '14:00')} EST · Daily`
+        : 'Off'
+    };
+  }
+}
+
+</script>
+</body>
+</html>
